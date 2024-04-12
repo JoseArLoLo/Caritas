@@ -1,0 +1,56 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.contenedor-eventos {
+    background-color: v.$negro;
+    padding-bottom: 2rem;
+    
+    .eventos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .evento {
+        display: block;
+        border: .1rem solid v.$negro;
+        background-color: v.$blanco;
+        border-radius: 1.5rem;
+        box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.15);
+        margin: 1rem;
+        @include m.desktop {
+            max-width: 135rem;
+            max-height: 42rem;
+            @include m.grid-2(1rem);
+            img.evento-imagen {
+                max-width: 42rem;
+                justify-self: center;
+                align-self: center;
+                margin-left: 1rem;
+            }
+        }
+        
+        img.evento-imagen {
+            border-radius: .9rem;
+        }
+        .evento-contenido {
+            width: 95%;
+            margin: 0 auto;
+            h2 {
+                margin: 1rem 0;
+            }
+            p {
+                text-align: justify;
+                font-size: 1.6rem;
+                margin: 1rem 0;
+                @include m.small {
+                    font-size: 2rem;
+                }
+                &.evento-fecha{
+                    text-align: right;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

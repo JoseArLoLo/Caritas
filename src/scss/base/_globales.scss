@@ -1,0 +1,153 @@
+@use "variables" as v;
+@use "base/mixins" as m;
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*,
+*:after,
+*:before {
+    box-sizing: inherit;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: v.$fuente_principal;
+    font-size: 1.6rem;
+}
+p {
+    font-size: 2rem;
+    color: v.$negro;
+    line-height: 1.5;
+}
+a {
+    text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+}
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.6rem;
+}
+h3 {
+    font-size: 3rem;
+}
+
+img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    &.fondo {
+        pointer-events: none;
+        margin-bottom: 1rem;
+    }
+}
+section.section {
+    width: 100%;
+}
+section.section:last-of-type {
+    margin-bottom: 4rem;
+}
+.bold {
+    font-weight: bold;
+}
+.contenedor {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+    .contenedor-caja {
+        background-color: v.$negro;
+        @include m.tablet {
+            width: 85%;
+        }
+        box-shadow: 0 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+        padding: 1.5rem;
+        align-content: center;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+        p {
+            color: v.$blanco;
+        }
+    }
+    .contenedor-lista {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-content: flex-start;
+        @include m.tablet {
+            flex-direction: row;
+        }
+        p {
+            margin: 0;
+        }
+    }
+}
+.onda {
+    margin: -0.4rem auto;
+    padding: 0;
+    width: 100%;
+    pointer-events: none;
+    background-color: inherit; /* Heredar el color de fondo del body */
+    filter: inherit !important;
+    &.onda-footer {
+        margin-bottom: -4.1rem;
+    }
+}
+.cuerpo {
+    @include m.tablet {
+        margin: 10%;
+        margin-top: 1.5rem;
+    }
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    text-align: justify;
+}
+.lista {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-around;
+    align-items: center;
+}
+.lista-comun {
+    p {
+        margin: 0;
+    }
+}
+.listas {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @include m.telefono {
+        flex-direction: row;
+    }
+    justify-content: space-around;
+    align-items: center;
+    padding: 3rem;
+}
+.list {
+    box-shadow: 0 0 15px 3px rgb(0, 0, 0);
+    border-radius: 20px;
+    padding: 5px 5px;
+    display: inline-flex;
+    width: 80%;
+    min-height: 6rem;
+    max-height: 26rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    p {
+        @include m.desktop {
+            font-size: 2.5rem;
+        }
+    }
+}

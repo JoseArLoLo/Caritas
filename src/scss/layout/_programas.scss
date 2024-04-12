@@ -1,0 +1,48 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.contenedor-programas {
+    background-color: v.$rojo;
+}
+.programas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0;
+    .programa {
+        box-shadow: 0 0 1rem 0.2rem rgba(0, 0, 0, 0.15);
+        padding: 0.2rem;
+        border-radius: 2rem;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 300ms ease-in;
+        width: 15rem;
+        height: 11rem;
+        margin: 0 2.5rem;
+        @include m.telefono {
+            width: 19rem;
+            height: 15rem;
+        }
+        &:hover {
+            background-color: v.$negro;
+            transform: scale(1.2);
+        }
+        .programa-imagen {
+            width: 7rem;
+            height: 7rem;
+        }
+        .programa-detalles {
+            h1 {
+                text-align: center;
+                color: v.$blanco;
+                font-size: 2.4rem;
+                @include m.telefono {
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
+}

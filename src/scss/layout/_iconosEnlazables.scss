@@ -1,0 +1,29 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.galeria-programas {
+    @include m.grid(1, 2rem);
+    margin-bottom: 1rem;
+
+    @include m.telefono {
+        @include m.grid(2, 2rem);
+    }
+    @include m.tablet {
+        @include m.grid(3, 2rem);
+    }
+    @include m.desktop {
+        @include m.grid(4, 2rem);
+    }
+    .galeria-programas-item {
+        cursor: pointer;
+        img {
+            width: 11rem;
+            height: 11rem;
+            margin: 0 auto;
+            @include m.desktopXL {
+                width: 15rem;
+                height: 15rem;
+            }
+        }
+    }
+}

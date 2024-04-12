@@ -1,0 +1,169 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .superior {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+
+        @include m.telefono {
+            flex-direction: row;
+        }
+
+        div {
+            position: relative; /* Asegúrate de que el padre tenga una posición relativa */
+            width: 100%;
+            height: 6rem;
+            margin-top: 1rem;
+            @include m.telefono {
+                width: 19rem;
+                margin-top: 0rem;
+            }
+
+            &:first-of-type {
+                width: auto;
+                max-height: 5rem;
+                @include m.telefono {
+                    margin-left: 1rem;
+                }
+            }
+            .logo {
+                img.logo-imagen {
+                    max-width: 19rem;
+                    max-height: 5rem;
+                }
+            }
+            .boton-donar {
+                text-align: center;
+                color: v.$blanco;
+                background-color: v.$rojo;
+                text-decoration: none;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-transform: uppercase;
+                font-weight: bold;
+                &:hover {
+                    background-color: v.$negro;
+                }
+            }
+        }
+    }
+    .button-wrapper {
+        position: relative;
+        animation: fadeIn 0.5s ease-in-out;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        height: 4rem;
+        background-color: v.$rojo;
+        @include m.tablet {
+            display: none;
+        }
+        .barra {
+            position: absolute;
+            width: 2rem;
+            right: 1rem;
+            cursor: pointer;
+        }
+    }
+}
+nav {
+    display: none;
+    width: 100%;
+    z-index: 2;
+    @include m.tablet {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    &.open {
+        display: block;
+        @include m.tablet {
+            display: flex;
+        }
+    }
+    &.menu {
+        animation: fadeIn 0.5s ease-in-out;
+        background-color: v.$rojo;
+        @include m.tablet {
+            width: 100%;
+        }
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background-color: v.$rojo;
+        ul {
+            display: none;
+            position: relative;
+            width: 100%;
+            @include m.tablet {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 20rem;
+            }
+            background-color: darken(v.$rojo, 2);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease-in-out;
+            ul {
+                position: relative;
+                left: 0;
+                top: 100%;
+                background-color: darken(v.$rojo, 4);
+                @include m.tablet {
+                    position: absolute;
+                    left: 100%;
+                    top: 0;
+                }
+            }
+        }
+        li {
+            position: relative;
+            display: block;
+            @include m.tablet {
+                display: inline-block;
+
+                &:hover > ul {
+                    display: block;
+                }
+            }
+            li {
+                display: block;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+            }
+            a {
+                display: block;
+                padding: 2rem;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: v.$blanco;
+            }
+            &:hover {
+                background-color: v.$negro;
+            }
+        }
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

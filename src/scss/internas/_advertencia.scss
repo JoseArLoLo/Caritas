@@ -1,0 +1,71 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1001;
+}
+#close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+#popup-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+    z-index: 1002;
+    text-align: center;
+    padding: 0.4rem;
+    border-radius: 1.5rem;
+    max-height: 90%;
+    animation: fadeIn 0.5s ease-in-out;
+    width: 95%;
+    @include m.small {
+        width: 70%;
+    }
+
+
+    img {
+        max-width: 13rem;
+        margin: 0 auto;
+    }
+    p{
+        margin: 0.5rem;
+        @include m.tablet {
+            margin: 1.5rem;
+        }
+    }
+    p, a {
+        font-size: 1.5rem;
+        line-height: 1;
+        @include m.tablet {
+            font-size: 2rem;
+            line-height: inherit;
+        }
+    }
+    a {
+        background-color: v.$rojo;
+        border-radius: 1rem;
+        border-color: none;
+        color: v.$blanco;
+        font-weight: bold;
+        padding: .6rem 1.6rem;
+        margin: 1rem 0;
+        @include m.tablet {
+            margin: inherit;
+        }
+    }
+}

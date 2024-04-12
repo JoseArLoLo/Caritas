@@ -1,0 +1,75 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.contenedor-pagos {
+    text-transform: uppercase;
+    width: 90%;
+    margin: 5rem auto;
+    padding: 2rem;
+    background-color: v.$negro;
+    border: 0.2rem solid v.$blanco;
+    box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    color: v.$blanco;
+    .extra {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: .5rem;
+        // @include m.telefono {
+        //     flex-direction: row;
+        //     gap: .5rem;
+        // }
+        p {
+            font-size: 1.4rem;
+            position: relative;
+            color: v.$blanco;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        img {
+            display: inline-block;
+            width: 5rem;   
+        }
+    }
+    h2 {
+        text-align: center;
+        font-size: 2.4rem;
+        @include m.telefono {
+            font-size: 3.6rem;
+        }
+    }
+    .pagos {
+        .campo {
+            margin-bottom: 2rem;
+
+            label {
+                margin-bottom: 1rem;
+                display: block;
+                font-weight: bold;
+            }
+            input[type="text"] {
+                width: 100%;
+                padding: 1rem;
+                border: 1px solid v.$negro;
+                border-radius: 5rem;
+            }
+        }
+        button[type="submit"] {
+            font-weight: bold;
+            padding: 1rem 2rem;
+            background-color: v.$rojo;
+            color: v.$blanco;
+            border: none;
+            border-radius: 5rem;
+            width: 100%;
+            cursor: pointer;
+            transition: all 250ms ease-in;
+            &:hover {
+                background-color: v.$blanco;
+                color: v.$negro;
+            }
+        }
+    }
+}

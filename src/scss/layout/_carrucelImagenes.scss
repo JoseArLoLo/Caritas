@@ -1,0 +1,79 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+.carrucel {
+	height: auto;
+	max-height: 60rem;
+	overflow: hidden;
+	position: relative;
+	.overlay {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: center;
+		position: absolute;
+		width: 100%;
+		.contenido-slider {
+			z-index: 1;
+			h2 {
+				text-shadow: 0.3rem 0.1rem 0.5rem rgb(0, 0, 0, 0.5);
+				color: v.$blanco;
+				margin: 0;
+				@include m.telefono {
+					font-size: 6rem;
+				}
+			}
+		}
+	}
+	.slider-frame {
+		display: block;
+		width: 100%;
+		height: 40%;
+		overflow: hidden;
+		z-index: 0;
+		ul {
+			@include m.resetear-lista;
+			display: flex;
+			padding: 0;
+			width: 400%;
+			height: auto;
+			animation: slide 20s infinite alternate ease-in-out;
+		}
+		li {
+			width: 100%;
+			list-style: none;
+		}
+		img {
+			
+			max-width: 100%;
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+	}
+}
+@keyframes slide {
+	0% {
+		margin-left: 0;
+	}
+	20% {
+		margin-left: 0;
+	}
+	25% {
+		margin-left: -100%;
+	}
+	45% {
+		margin-left: -100%;
+	}
+	50% {
+		margin-left: -200%;
+	}
+	70% {
+		margin-left: -200%;
+	}
+	75% {
+		margin-left: -300%;
+	}
+	100% {
+		margin-left: -300%;
+	}
+}

@@ -1,0 +1,67 @@
+@use "variables" as v;
+
+@mixin small {
+    @media (min-width: v.$small) {
+        @content;
+    }
+}
+
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+@mixin desktopXL {
+    @media (min-width: v.$desktopXL) {
+        @content;
+    }
+}
+
+@mixin grid($columnas, $espaciado) {
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    gap: $espaciado;
+}
+
+@mixin grid-2($espaciado) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: $espaciado;
+}
+@mixin grid-2-esp($espaciado) {
+    display: grid;
+    grid-template-columns: unset;
+    grid-template-rows: 1fr 1fr;
+    gap: $espaciado;
+    @include telefono {
+        grid-template-rows: unset;
+        grid-template-columns: 1fr 2fr;
+    }
+}
+@mixin titulo($color, $font-min, $font-max, $align) {
+    text-align: $align;
+    color: $color;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: $font-min;
+    @include small {
+        font-size: $font-max;
+    }
+}
+
+@mixin resetear-lista {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

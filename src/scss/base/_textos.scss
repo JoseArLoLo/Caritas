@@ -1,0 +1,42 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.titulo-center {
+    @include m.titulo(v.$blanco, 2.4rem, 4rem, center);
+}
+.titulo-center-rojo {
+    @include m.titulo(v.$rojo, 2.4rem, 4rem, center);
+}
+.titulo-center-negro {
+    @include m.titulo(v.$negro, 2.4rem, 4rem, center);
+}
+.titulo-left {
+    @include m.titulo(v.$blanco, 2.4rem, 4rem, left);
+}
+.titulo-right {
+    @include m.titulo(v.$blanco, 2.4rem, 4rem, right);
+}
+.subtitulo-left-negro {
+    @include m.titulo(v.$negro, 2.1rem, 3rem, left);
+}
+.subtitulo-center-rojo {
+    @include m.titulo(v.$rojo, 2.1rem, 3rem, center);
+}
+.subtitulo-left-rojo {
+    @include m.titulo(v.$rojo, 2.1rem, 3rem, left);
+}
+.titulo-interno-center-rojo {
+    @include m.titulo(v.$rojo, 1.8rem, 2.6rem, center);
+}
+.titulo-interno-left-rojo {
+    @include m.titulo(v.$rojo, 1.8rem, 2.2rem, left);
+}
+.subtitulo-right-negro {
+    @include m.titulo(v.$negro, 2.1rem, 3rem, right);
+}
+.titulo-interno {
+    @include m.titulo(v.$negro, 2.1rem, 2.6rem, left);
+}
+.subtitulo-center-negro {
+    @include m.titulo(v.$negro, 1.7rem, 2.6rem, center);
+}

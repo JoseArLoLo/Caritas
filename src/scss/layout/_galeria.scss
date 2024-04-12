@@ -1,0 +1,73 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+/* Estilos para la galería */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    width: 95%;
+    margin: auto;
+    gap: 10px;
+    padding: 40px 0;
+    overflow: hidden;
+    img.gallery-img {
+        width: 100%;
+        height: 300px;
+        vertical-align: top;
+        object-fit: cover;
+    }
+}
+
+/* Estilos para el visualizador */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.close {
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.caption {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.navigation button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
