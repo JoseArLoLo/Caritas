@@ -127,7 +127,7 @@ section.section:last-of-type {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    @include m.telefono {
+    @include m.tablet {
         flex-direction: row;
     }
     justify-content: space-around;
@@ -150,4 +150,7 @@ section.section:last-of-type {
             font-size: 2.5rem;
         }
     }
+}
+.detail-list h3 {
+    font-size: 2.5rem;
 }

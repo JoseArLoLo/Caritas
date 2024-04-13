@@ -6,7 +6,7 @@ incluirTemplate('header');
     <h2 class="subtitulo-left-negro">Titulo Pagina</h2>
     <section class="section seccion-anuncios">
         <article class="anuncio">
-            <h2 class="titulo-interno anuncio-titulo">Titulo anuncio</h2>
+            <h2 class="titulo-interno-left anuncio-titulo">Titulo anuncio</h2>
             <a href="/anuncio.php">
                 <div class="contenido-anuncio">
                     <img src="/build/img/1.jpg" class="contenido-anuncio-imagen">
@@ -18,7 +18,7 @@ incluirTemplate('header');
             </a>
         </article> <!--.anuncio-->
         <article class="anuncio">
-            <h2 class="titulo-interno anuncio-titulo">Titulo anuncio</h2>
+            <h2 class="titulo-interno-left anuncio-titulo">Titulo anuncio</h2>
             <a href="/anuncio.php">
                 <div class="contenido-anuncio">
                     <img src="/build/img/1.jpg" class="contenido-anuncio-imagen">
@@ -30,7 +30,7 @@ incluirTemplate('header');
             </a>
         </article> <!--.anuncio-->
         <article class="anuncio">
-            <h2 class="titulo-interno anuncio-titulo">Titulo anuncio</h2>
+            <h2 class="titulo-interno-left anuncio-titulo">Titulo anuncio</h2>
             <a href="/anuncio.php">
                 <div class="contenido-anuncio">
                     <img src="/build/img/1.jpg" class="contenido-anuncio-imagen">

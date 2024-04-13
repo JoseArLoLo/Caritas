@@ -33,7 +33,7 @@ incluirTemplate('header');
                         <img loading="lazy" width="200" src="/svg/Germany.svg" alt="Imagen historia" class="historia-content-image">
                     </picture>
                     <div class="historia-content-info">
-                        <h2 class="titulo-interno">1867 Pbro. Lorenz Werthmann</h2>
+                        <h2 class="titulo-interno-left">1867 Pbro. Lorenz Werthmann</h2>
                         <p>Friburgo, Alemania instituyen una unión de organizaciones denominada Cáritas.
                             Con el objetivo de brindar Ayuda Humanitaria, Cooperación al desarrollo y Servicios sociales.
                         </p>
@@ -48,7 +48,7 @@ incluirTemplate('header');
                         <img loading="lazy" width="200" src="/build/img/1940.jpg" alt="Imagen historia" class="historia-content-image">
                     </picture>
                     <div class="historia-content-info">
-                        <h2 class="titulo-interno">1940 Segunda Guerra Mundial</h2>
+                        <h2 class="titulo-interno-left">1940 Segunda Guerra Mundial</h2>
                         <p>Cáritas se expande a la mayoría de los países de Europa, para cubrir la necesidad de coordinar servicios a
                             nivel
                             Internacional y ayudar a los heridos durante la guerra.
@@ -64,7 +64,7 @@ incluirTemplate('header');
                         <img loading="lazy" width="200" src="/build/img/1951.jpg" alt="Imagen historia" class="historia-content-image">
                     </picture>
                     <div class="historia-content-info">
-                        <h2 class="titulo-interno">1951 Su misión es la Caridad y la justicia.</h2>
+                        <h2 class="titulo-interno-left">1951 Su misión es la Caridad y la justicia.</h2>
                         <p>Se formaliza Cáritas Internacional, cómo una de las más amplias redes del mundo en el ámbito de ayuda
                             humanitaria. Está presente en 195 países.
                         </p>
@@ -79,7 +79,7 @@ incluirTemplate('header');
                         <img loading="lazy" width="200" src="/build/img/1968.jpg" alt="Imagen historia" class="historia-content-image">
                     </picture>
                     <div class="historia-content-info">
-                        <h2 class="titulo-interno">1968 Comisión Episcopal para la Pastoral Social en México.</h2>
+                        <h2 class="titulo-interno-left">1968 Comisión Episcopal para la Pastoral Social en México.</h2>
                         <p>Surge CARITAS MEXICANA con el objetivo de llevar a efecto con eficacia la promoción y orientacion de la
                             acción social de los cristianos. Al dia de hoy hay 74 Cáritas a nivel nacional.
                         </p>

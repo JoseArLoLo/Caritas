@@ -6,7 +6,7 @@ incluirTemplate('header');
     <section class="section">
         <div class="cuerpo">
             <div class="contenedor">
-                <h1 class="titulo-center-negro">Medios de contacto disponible</h1>
+                <h1 class="titulo-center-rojo">Medios de contacto disponible</h1>
                 <h2 class="subtitulo-left-negro" style="margin-top: 1rem;">Contacto Cáritas - Los Alamitos</h2>
                 <div class="informacion-atencion">
                     <p class="atencion-info">Contacto</p>

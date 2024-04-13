@@ -17,18 +17,20 @@ incluirTemplate('header');
 
         <div class="modal">
             <div class="navigation">
-                <button id="prevBtn">&lt; Anterior</button>
+                <button class="boton" id="prevBtn">❮</button>
                 <div class="presentable">
-                    <span class="close">&times;</span>
+                    <div class="close">
+                        <div class="close-icon">&times;</div>
+                    </div>
                     <div class="modal-content">
                         <img id="modal-image" src="" alt="">
                         <div class="caption">
-                            <h2 id="modal-title"></h2>
+                            <h2 class="titulo-interno-center" id="modal-title"></h2>
                             <p id="modal-description"></p>
                         </div>
                     </div>
                 </div>
-                <button id="nextBtn">Siguiente &gt;</button>
+                <button class="boton" id="nextBtn">❯</button>
             </div>
         </div>
     </section>
@@ -58,10 +60,12 @@ incluirTemplate('header');
         thumbnails.forEach((thumbnail, index) => {
             thumbnail.addEventListener('click', () => {
                 showModal(index);
+                toggleScrollLock();
             });
         });
         // Función para cerrar el visualizador
     function closeModal() {
+        toggleScrollLock()
         modal.style.display = 'none';
     }
 
@@ -81,6 +85,15 @@ incluirTemplate('header');
     nextBtn.addEventListener('click', showNextImage);
     closeBtn.addEventListener('click', closeModal);
     });
-    
+    function toggleScrollLock() {
+    // Verificar si el cuerpo de la página está actualmente con scroll bloqueado
+    if (document.body.style.overflowY === 'hidden') {
+        // Desbloquear scroll
+        document.body.style.overflowY = 'auto';
+    } else {
+        // Bloquear scroll
+        document.body.style.overflowY = 'hidden';
+    }
+}
 </script>
 <?php incluirTemplate('footer'); ?>
