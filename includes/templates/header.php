@@ -119,7 +119,7 @@
                 <li>
                     <a href="#">Ayuda</a>
                     <ul>
-                        <li><a href="#">¿Cómo Ayudar?</a></li>
+                        <li><a href="/ayuda.php">¿Cómo Ayudar?</a></li>
                         <li><a href="#">Preguntas Frecuentes</a></li>
                         <li><a href="#">Opiniones y sugerencias</a></li>
                         <li><a href="#">Testimonios</a></li>
