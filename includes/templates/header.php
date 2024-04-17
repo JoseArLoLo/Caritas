@@ -120,9 +120,9 @@
                     <a href="#">Ayuda</a>
                     <ul>
                         <li><a href="/ayuda.php">¿Cómo Ayudar?</a></li>
-                        <li><a href="#">Preguntas Frecuentes</a></li>
-                        <li><a href="#">Opiniones y sugerencias</a></li>
-                        <li><a href="#">Testimonios</a></li>
+                        <li><a href="/preguntas-frecuentes.php">Preguntas Frecuentes</a></li>
+                        <li><a href="/opiniones-sugerencias.php">Opiniones y sugerencias</a></li>
+                        <li><a href="/testimonios.php">Testimonios</a></li>
                     </ul>
                 </li>
                 <li><a href="/contacto.php">¡Contactanos!</a></li>

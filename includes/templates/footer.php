@@ -8,9 +8,9 @@
             <p><a href="/about.php#nuestroinicio">Nuestro Inicio</a></p>
         </div>
         <div class="footer_item">
-            <p><a href="#">¿Necesitas ayuda?</a></p>
-            <p><a href="#">Preguntas frecuentes</a></p>
-            <p><a target="_blank" href="/contacto.php">Contactanos</a></p>
+            <p><a>¿Necesitas ayuda?</a></p>
+            <p><a href="/preguntas-frecuentes.php">Preguntas frecuentes</a></p>
+            <p><a href="/contacto.php">Contactanos</a></p>
         </div>
         <div class="footer_item">
             <p>Redes sociales</p>

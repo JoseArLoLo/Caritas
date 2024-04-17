@@ -1,0 +1,37 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.contenedor-ayuda {
+    text-align: center;
+    @include m.grid(1, 2rem);
+    @include m.tablet {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+    }
+    .ayuda-item {
+        @include m.tablet {
+            @include m.grid(2, 1rem);
+            grid-template-columns: 1fr 2.5fr;
+        }
+        picture {
+            align-self: center;
+            justify-self: center;
+        }
+        img.ayuda-item-image {
+            width: 7rem;
+            height: 7rem;
+            margin: 0 auto;
+            @include m.tablet {
+                margin: unset;
+            }
+        }
+        p.ayuda-item-texto {
+            margin: 0;
+            line-height: 1.5;
+        }
+        h3.ayuda-item-titulo {
+            color: #3f3f3f;
+            font-weight: bold;
+        }
+    }
+}

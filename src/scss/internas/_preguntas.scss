@@ -1,0 +1,15 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.contenedor-preguntas {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .pregunta {
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+    }
+    .pregunta:last-of-type {
+        border: unset;
+    }
+}

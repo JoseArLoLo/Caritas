@@ -1,6 +1,13 @@
 @use "base/variables" as v;
 @use "base/mixins" as m;
-
+.contenedor-testimonios-esp {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
 .contenedor-testimonios {
     h1 {
         color: v.$negro;
@@ -19,36 +26,7 @@
         @include m.desktopXL {
             flex-direction: row;
         }
-        .testimonio {
-            @include m.grid-2-esp(1rem);
-            flex: 0 0 calc(50% - 2rem);
-            max-width: 80rem;
-            border: 1px solid v.$rojo;
-            border-radius: 2rem;
-            img.testimonio-img {
-                max-width: 20rem;
-                align-self: center;
-                justify-self: center;
-            }
-        }
 
-        .testimonio-info {
-            p {
-                text-align: justify;
-                margin: 0 1rem;
-                @include m.desktopXL {
-                    margin: 0;
-                    margin-right: 1rem;
-                }
-            }
-            h2 {
-                margin-left: 1rem;
-                margin-right: 2rem;
-                @include m.desktopXL {
-                    margin-left: 0;
-                }   
-            }
-        }
         animation: fadeIn 0.5s ease-in-out;
     }
     .botones-testimonios {
@@ -71,6 +49,36 @@
                 background-color: v.$blanco;
                 color: darken(v.$blanco, $amount: 50);
             }
+        }
+    }
+}
+.testimonio {
+    @include m.grid-2-esp(1rem);
+    flex: 0 0 calc(50% - 2rem);
+    max-width: 80rem;
+    border: 1px solid v.$rojo;
+    border-radius: 2rem;
+    img.testimonio-img {
+        max-width: 20rem;
+        align-self: center;
+        justify-self: center;
+    }
+}
+
+.testimonio-info {
+    p {
+        text-align: justify;
+        margin: 0 1rem;
+        @include m.desktopXL {
+            margin: 0;
+            margin-right: 1rem;
+        }
+    }
+    h2 {
+        margin-left: 1rem;
+        margin-right: 2rem;
+        @include m.desktopXL {
+            margin-left: 0;
         }
     }
 }

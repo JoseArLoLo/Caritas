@@ -5,9 +5,25 @@ incluirTemplate('header');
 <main class="contenedor seccion">
     <section class="section">
         <div class="cuerpo">
+            <h1 class="titulo-center-rojo">Medios de contacto disponible</h1>
             <div class="contenedor">
-                <h1 class="titulo-center-rojo">Medios de contacto disponible</h1>
-                <h2 class="subtitulo-left-negro" style="margin-top: 1rem;">Contacto Cáritas - Los Alamitos</h2>
+                <h2 class="subtitulo-left-negro" style="margin-top: 1rem;"><u>Contacto Cáritas - Oficinas</u></h2>
+                <div class="informacion-atencion">
+                    <p class="atencion-info">Contacto</p>
+                    <p class="atencion-contenido">667 715 7301</p>
+                    <div class="medios">
+                        <a class="atencion-contenido atencion-contenido-logo" href="tel:6677157301"> <img class="icono_atencion" src="/svg/phone.svg" alt="icono telefono">
+                            <p class="atencion-contenido">Llamar</p>
+                        </a>
+                    </div>
+                    <p class="atencion-info">Domicilio</p>
+                    <a class="atencion-contenido atencion-contenido-direccion" href="https://maps.app.goo.gl/gLqmjcNNTVppipHQ9">
+                        <img loading="lazy" src="/svg/ubicacion.svg" alt="ubicacion-icon">
+                        <p>Cáritas Diocesana de Culiacán</p>
+                    </a>
+                </div>
+                <br>
+                <h2 class="subtitulo-left-negro" style="margin-top: 1rem;"><u>Contacto Cáritas - Los Alamitos</u></h2>
                 <div class="informacion-atencion">
                     <p class="atencion-info">Contacto</p>
                     <p class="atencion-contenido">667 172 6395</p>

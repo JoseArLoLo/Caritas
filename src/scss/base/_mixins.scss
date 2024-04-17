@@ -44,7 +44,7 @@
     grid-template-columns: unset;
     grid-template-rows: 1fr 1fr;
     gap: $espaciado;
-    @include telefono {
+    @include tablet {
         grid-template-rows: unset;
         grid-template-columns: 1fr 2fr;
     }
