@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($errores)) {
         //Revisar si el usuario existe
-        $query = "SELECT * FROM Usuarios WHERE user = '$user'";
+        $query = "SELECT * FROM usuarios WHERE user = '$user'";
         $resultado = mysqli_query($db, $query);
 
         if ($resultado->num_rows) {
