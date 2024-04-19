@@ -1,5 +1,4 @@
 <?php
-require '../includes/config/database.php';
 require '../includes/funciones.php';
 $db = conectarBD();
 
@@ -65,7 +64,7 @@ incluirTemplate('header');
                 <input type="text" name="user" placeholder="Tu usuario" id="user">
 
                 <label for="password">Contraseña</label>
-                <input type="password" name="password" placeholder="Tu Password" id="password">
+                <input type="password" name="password" placeholder="Tu Contraseña" id="password">
             </fieldset>
 
             <input type="submit" value="Iniciar Sesión" class="boton-verde">

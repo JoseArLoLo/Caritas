@@ -1,5 +1,9 @@
 <?php
 require 'includes/funciones.php';
+$db = conectarBD();
+
+$query = "SELECT * FROM preguntas";
+$preguntas = mysqli_query($db, $query);
 incluirTemplate('header');
 ?>
 <main class="contenedor seccion">
@@ -7,18 +11,12 @@ incluirTemplate('header');
         <h1 class="titulo-center-rojo" style="margin-top: 1rem;">Preguntas Frecuentes</h1>
         <div class="contenedor">
             <div class="contenedor-preguntas">
-                <div class="pregunta">
-                    <h2 class="titulo-interno-left-rojo">%Placeholder%</h2>
-                    <p>%Placeholder%</p>
-                </div>
-                <div class="pregunta">
-                    <h2 class="titulo-interno-left-rojo">%Placeholder%</h2>
-                    <p>%Placeholder%</p>
-                </div>
-                <div class="pregunta">
-                    <h2 class="titulo-interno-left-rojo">%Placeholder%</h2>
-                    <p>%Placeholder%</p>
-                </div>
+                <?php while ($pregunta = mysqli_fetch_assoc($preguntas)) : ?>
+                    <div class="pregunta">
+                        <h2 class="titulo-interno-left-rojo"><?php echo $pregunta['question']; ?></h2>
+                        <p><?php echo $pregunta['answer']; ?></p>
+                    </div>
+                <?php endwhile; ?>
             </div>
         </div>
     </section>

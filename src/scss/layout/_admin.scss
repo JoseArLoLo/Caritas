@@ -16,3 +16,34 @@
         background-color: v.$verde;
     }
 }
+.admin {
+    overflow: hidden;
+}
+.contenedor-tabla {
+    overflow-x: auto;
+    width: 100%;
+    height: 30rem;
+}
+.tablas_administrables {
+    margin-top: 1rem;
+}
+table.tabla {
+    margin-top: 2rem;
+    width: 100%; overflow-x: auto;
+    border-spacing: 0;
+    thead {
+        background-color: v.$rojo;
+
+        th {
+            color: v.$blanco;
+            padding: 2rem;
+        }
+    }
+    td {
+        border: 1px solid v.$rojo;
+        text-align: center;
+    }
+    .imagen-tabla {
+        width: 10rem;
+    }
+}
