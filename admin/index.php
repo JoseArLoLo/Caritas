@@ -5,6 +5,9 @@ if (!estaAutenticado()) {
 }
 // Importar la conexion para cargar datos de tablero
 $db = conectarBD();
+
+$resultado = $_GET['resultado'] ?? null;
+
 $data = ['anuncios', 'eventos', 'galeria', 'preguntas', 'sugerencias', 'testimonios'];
 $query = "SELECT * FROM anuncios";
 $anuncios = mysqli_query($db, $query);
@@ -44,12 +47,19 @@ incluirTemplate('header');
     <section class="section admin">
         <h1 class="titulo-center-rojo" style="margin: 1rem 0;">Panel de administracion</h1>
         <div class="botones-admin">
-            <a class="boton-rojo-block" href="/close-sesion.php">Cerrar Sesion</a>
+            <a class="boton-rojo" href="/close-sesion.php">Cerrar Sesion</a>
         </div>
+
+        <?php if ($resultado == 1) : ?>
+            <p class="alerta exito">Pregunta creada correctamente</p>
+        <?php elseif ($resultado == 2) : ?>
+            <p class="alerta exito">Pregunta actualizada correctamente</p>
+        <?php endif; ?>
+
         <div class="tablas_administrables">
             <div class="elementos" id="preguntas">
                 <h2 class="subtitulo-center-rojo">Preguntas Frecuentes</h2>
-                <a class="boton-rojo">Nueva pregunta</a>
+                <a class="boton-rojo" href="/admin/preguntas/crear.php">Nueva pregunta</a>
                 <div class="contenedor-tabla">
                     <table class="tabla">
                         <thead>
@@ -71,7 +81,7 @@ incluirTemplate('header');
                                             <input type="submit" class="boton-negro-block" value="Eliminar">
                                         </form>
 
-                                        <a href="/admin/anuncios/actualizar.php?id=<?php echo $pregunta['id']; ?>" class="boton-rojo-block">Actualizar</a>
+                                        <a href="/admin/preguntas/actualizar.php?id=<?php echo $pregunta['id']; ?>" class="boton-rojo-block">Actualizar</a>
                                     </td>
                                 </tr>
                             <?php endwhile; ?>
