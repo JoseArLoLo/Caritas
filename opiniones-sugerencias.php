@@ -1,5 +1,9 @@
 <?php
 require 'includes/funciones.php';
+$db = conectarBD();
+
+$query = "SELECT * FROM sugerencias";
+$opiniones = mysqli_query($db, $query);
 incluirTemplate('header');
 ?>
 <main class="contenedor seccion">
@@ -7,18 +11,12 @@ incluirTemplate('header');
         <h1 class="titulo-center-rojo" style="margin-top: 1rem;">Opiniones y sugerencias</h1>
         <div class="contenedor">
             <div class="contenedor-preguntas">
-                <div class="pregunta">
-                    <h2 class="titulo-interno-left-rojo">Titulo opinion</h2>
-                    <p>descripcion opinion</p>
-                </div>
-                <div class="pregunta">
-                    <h2 class="titulo-interno-left-rojo">Titulo opinion</h2>
-                    <p>descripcion opinion</p>
-                </div>
-                <div class="pregunta">
-                    <h2 class="titulo-interno-left-rojo">Titulo opinion</h2>
-                    <p>descripcion opinion</p>
-                </div>
+                <?php while ($opinion = mysqli_fetch_assoc($opiniones)) : ?>
+                    <div class="pregunta">
+                        <h2 class="titulo-interno-left-rojo"><?php echo $opinion['title']; ?></h2>
+                        <p><?php echo $opinion['resume']; ?></p>
+                    </div>
+                <?php endwhile; ?>
             </div>
         </div>
     </section>

@@ -26,6 +26,12 @@
 }
 .tablas_administrables {
     margin-top: 1rem;
+    .elementos {
+        margin-top: 1rem;
+    }
+    .elementos:first-of-type {
+        margin-top: unset;
+    }
 }
 table.tabla {
     margin-top: 2rem;

@@ -45,7 +45,7 @@ incluirTemplate('header');
 ?>
 <main class="contenedor seccion">
     <section class="section admin">
-        <h1 class="titulo-center-rojo" style="margin: 1rem 0;">Panel de administracion</h1>
+        <h1 class="titulo-center-rojo" style="margin: 1rem 0;">Panel de administración</h1>
         <div class="botones-admin">
             <a class="boton-rojo" href="/close-sesion.php">Cerrar Sesion</a>
         </div>
@@ -54,6 +54,10 @@ incluirTemplate('header');
             <p class="alerta exito">Pregunta creada correctamente</p>
         <?php elseif ($resultado == 2) : ?>
             <p class="alerta exito">Pregunta actualizada correctamente</p>
+        <?php elseif ($resultado == 3) : ?>
+            <p class="alerta exito">Opinion creada correctamente</p>
+        <?php elseif ($resultado == 4) : ?>
+            <p class="alerta exito">Opinion actualizada correctamente</p>
         <?php endif; ?>
 
         <div class="tablas_administrables">
@@ -88,7 +92,39 @@ incluirTemplate('header');
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div><!--Seccion Preguntas Frecuentes-->
+            <div class="elementos" id="opiniones">
+                <h2 class="subtitulo-center-rojo">Opiniones y sugerencias</h2>
+                <a class="boton-rojo" href="/admin/opiniones/crear.php">Nueva opinion/sugerencia</a>
+                <div class="contenedor-tabla">
+                    <table class="tabla">
+                        <thead>
+                            <th>ID</th>
+                            <th>Titulo</th>
+                            <th>Contenido</th>
+                            <th>Acciones</th>
+                        </thead>
+                        <tbody>
+                            <?php while ($opinion = mysqli_fetch_assoc($sugerencias)) : ?>
+                                <tr>
+                                    <td><?php echo $opinion['id']; ?></td>
+                                    <td><?php echo $opinion['title']; ?></td>
+                                    <td><?php echo $opinion['resume']; ?></td>
+                                    <td>
+                                        <form method="post" class="w-100">
+                                            <input type="hidden" name="id" value="<?php echo $opinion['id']; ?>">
+                                            <input type="hidden" name="data" value="sugerencias">
+                                            <input type="submit" class="boton-negro-block" value="Eliminar">
+                                        </form>
+
+                                        <a href="/admin/opiniones/actualizar.php?id=<?php echo $opinion['id']; ?>" class="boton-rojo-block">Actualizar</a>
+                                    </td>
+                                </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!--Seccion Opiniones y sugerencias-->
         </div>
     </section>
 </main>
