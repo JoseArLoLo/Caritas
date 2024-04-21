@@ -42,7 +42,7 @@
 @mixin grid-2-esp($espaciado) {
     display: grid;
     grid-template-columns: unset;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: .5fr 1fr;
     gap: $espaciado;
     @include tablet {
         grid-template-rows: unset;

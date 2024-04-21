@@ -32,7 +32,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
     $table = $_POST['data'];
     $id = filter_var($id, FILTER_VALIDATE_INT);
+    $carpetaImagenes = '';
     if (in_array($table, $data) && $id) {
+        switch ($table) {
+            case "testimonios":
+                $carpetaImagenes = '../testimonios/';
+                unlink($carpetaImagenes . $_POST['image']);
+                break;
+        }
+
         // Eliminar Entidad
         $query = "DELETE FROM $table WHERE id = $id";
         $resultado = mysqli_query($db, $query);
@@ -58,6 +66,10 @@ incluirTemplate('header');
             <p class="alerta exito">Opinion creada correctamente</p>
         <?php elseif ($resultado == 4) : ?>
             <p class="alerta exito">Opinion actualizada correctamente</p>
+        <?php elseif ($resultado == 5) : ?>
+            <p class="alerta exito">Testimonio creado correctamente</p>
+        <?php elseif ($resultado == 6) : ?>
+            <p class="alerta exito">Testimonio actualizado correctamente</p>
         <?php endif; ?>
 
         <div class="tablas_administrables">
@@ -125,6 +137,43 @@ incluirTemplate('header');
                     </table>
                 </div>
             </div><!--Seccion Opiniones y sugerencias-->
+            <div class="elementos" id="testimonios">
+                <h2 class="subtitulo-center-rojo">Testimonios</h2>
+                <a class="boton-rojo" href="/admin/testimonios/crear.php">Nuevo Testimonio</a>
+                <div class="contenedor-tabla">
+                    <table class="tabla">
+                        <thead>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Testimonio</th>
+                            <th>Foto</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </thead>
+                        <tbody>
+                            <?php while ($testimonio = mysqli_fetch_assoc($testimonios)) : ?>
+                                <tr>
+                                    <td><?php echo $testimonio['id']; ?></td>
+                                    <td><?php echo $testimonio['name']; ?></td>
+                                    <td><?php echo $testimonio['info']; ?></td>
+                                    <td><img src="/testimonios/<?php echo $testimonio['image']; ?>" class="imagen-tabla"></td>
+                                    <td><?php echo $testimonio['publication']; ?></td>
+                                    <td>
+                                        <form method="post" class="w-100">
+                                            <input type="hidden" name="id" value="<?php echo $testimonio['id']; ?>">
+                                            <input type="hidden" name="data" value="testimonios">
+                                            <input type="hidden" name="image" value="<?php echo $testimonio['image']; ?>">
+                                            <input type="submit" class="boton-negro-block" value="Eliminar">
+                                        </form>
+
+                                        <a href="/admin/testimonios/actualizar.php?id=<?php echo $testimonio['id']; ?>" class="boton-rojo-block">Actualizar</a>
+                                    </td>
+                                </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!--Seccion Testimonios-->
         </div>
     </section>
 </main>
