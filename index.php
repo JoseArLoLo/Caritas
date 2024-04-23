@@ -173,7 +173,9 @@ incluirTemplate('header');
             <h1 class="titulo-center">Testimonios</h1>
             <div class="testimonios">
                 <div class="testimonio">
-                    <img class="testimonio-img" src="/build/img/icono-asesorias.png" alt="testimonio">
+                    <div class="contedor-testimonio-img">
+                        <img class="testimonio-img" src="/build/img/icono-asesorias.png" alt="testimonio">
+                    </div>
                     <div class="testimonio-info">
                         <h2 class="subtitulo-left-negro">Nombre 1</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit minus molestias facere a? Repellendus omnis exercitationem, reiciendis culpa voluptatem aut sit debitis, dolore veritatis nobis iure fugit maxime commodi nostrum?</p>
@@ -181,7 +183,9 @@ incluirTemplate('header');
                     </div>
                 </div>
                 <div class="testimonio">
-                    <img class="testimonio-img" src="/build/img/icono-asesorias.png" alt="testimonio">
+                    <div class="contedor-testimonio-img">
+                        <img class="testimonio-img" src="/build/img/icono-asesorias.png" alt="testimonio">
+                    </div>
                     <div class="testimonio-info">
                         <h2 class="subtitulo-left-negro">Nombre 2</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit minus molestias facere a? Repellendus omnis exercitationem, reiciendis culpa voluptatem aut sit debitis, dolore veritatis nobis iure fugit maxime commodi nostrum?</p>
@@ -191,7 +195,9 @@ incluirTemplate('header');
             </div>
             <div class="testimonios">
                 <div class="testimonio">
-                    <img class="testimonio-img" src="/build/img/icono-asesorias.png" alt="testimonio">
+                    <div class="contedor-testimonio-img">
+                        <img class="testimonio-img" src="/build/img/icono-asesorias.png" alt="testimonio">
+                    </div>
                     <div class="testimonio-info">
                         <h2 class="subtitulo-left-negro">Nombre 3</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit minus molestias facere a? Repellendus omnis exercitationem, reiciendis culpa voluptatem aut sit debitis, dolore veritatis nobis iure fugit maxime commodi nostrum?</p>
@@ -199,7 +205,9 @@ incluirTemplate('header');
                     </div>
                 </div>
                 <div class="testimonio">
-                    <img class="testimonio-img" src="/build/img/icono-asesorias.png" alt="testimonio">
+                    <div class="contedor-testimonio-img">
+                        <img class="testimonio-img" src="/build/img/icono-asesorias.png" alt="testimonio">
+                    </div>
                     <div class="testimonio-info">
                         <h2 class="subtitulo-left-negro">Nombre 4</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit minus molestias facere a? Repellendus omnis exercitationem, reiciendis culpa voluptatem aut sit debitis, dolore veritatis nobis iure fugit maxime commodi nostrum?</p>

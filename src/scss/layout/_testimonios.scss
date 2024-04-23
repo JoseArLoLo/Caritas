@@ -81,6 +81,10 @@
 }
 
 .testimonio-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
     p {
         text-align: justify;
         margin: 0 1rem;
