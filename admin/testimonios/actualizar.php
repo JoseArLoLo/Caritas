@@ -61,8 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($image['name']) {
             // Eliminar imagen anterior en caso de existir
-            $carpetaImagenes = '../testimonios/';
-            unlink($carpetaImagenes . $_POST['image']);
+            $carpetaImagenes = '../../testimonios/';
+            unlink($carpetaImagenes . $variable["image"]);
             //Generar un nombre unico
             $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
             // Subir la imagen
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($resultado) {
             // Redireccionar al usuario.
-            header('Location: /admin?resultado=6    ');
+            header('Location: /admin?resultado=6');
         }
     }
 }

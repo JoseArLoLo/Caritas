@@ -2,44 +2,47 @@
 @use 'base/mixins' as m;
 
 .titulo-center {
-    @include m.titulo(v.$blanco, 2.4rem, 4rem, center);
+    @include m.titulo(v.$blanco, 2.4rem, 4rem, center, uppercase);
 }
 .titulo-center-rojo {
-    @include m.titulo(v.$rojo, 2.4rem, 4rem, center);
+    @include m.titulo(v.$rojo, 2.4rem, 4rem, center, uppercase);
 }
 .titulo-center-negro {
-    @include m.titulo(v.$negro, 2.4rem, 4rem, center);
+    @include m.titulo(v.$negro, 2.4rem, 4rem, center, uppercase);
 }
 .titulo-left {
-    @include m.titulo(v.$blanco, 2.4rem, 4rem, left);
+    @include m.titulo(v.$blanco, 2.4rem, 4rem, left, uppercase);
 }
 .titulo-right {
-    @include m.titulo(v.$blanco, 2.4rem, 4rem, right);
+    @include m.titulo(v.$blanco, 2.4rem, 4rem, right, uppercase);
 }
 .subtitulo-left-negro {
-    @include m.titulo(v.$negro, 2.1rem, 3rem, left);
+    @include m.titulo(v.$negro, 2.1rem, 3rem, left, uppercase);
 }
 .subtitulo-center-rojo {
-    @include m.titulo(v.$rojo, 2.1rem, 3rem, center);
+    @include m.titulo(v.$rojo, 2.1rem, 3rem, center, uppercase);
 }
 .subtitulo-left-rojo {
-    @include m.titulo(v.$rojo, 2.1rem, 3rem, left);
+    @include m.titulo(v.$rojo, 2.1rem, 3rem, left, uppercase);
 }
 .titulo-interno-center-rojo {
-    @include m.titulo(v.$rojo, 1.8rem, 2.6rem, center);
+    @include m.titulo(v.$rojo, 1.8rem, 2.6rem, center, uppercase);
 }
 .titulo-interno-left-rojo {
-    @include m.titulo(v.$rojo, 1.8rem, 2.2rem, left);
+    @include m.titulo(v.$rojo, 1.8rem, 2.2rem, left, uppercase);
 }
 .subtitulo-right-negro {
-    @include m.titulo(v.$negro, 2.1rem, 3rem, right);
+    @include m.titulo(v.$negro, 2.1rem, 3rem, right, uppercase);
+}
+.subtitulo-right-negro-2 {
+    @include m.titulo(v.$negro, 2.1rem, 3rem, right, lowercase);
 }
 .titulo-interno-left {
-    @include m.titulo(v.$negro, 2.1rem, 2.6rem, left);
+    @include m.titulo(v.$negro, 2.1rem, 2.6rem, left, uppercase);
 }
 .titulo-interno-center {
-    @include m.titulo(v.$negro, 2.1rem, 2.6rem, center);
+    @include m.titulo(v.$negro, 2.1rem, 2.6rem, center, uppercase);
 }
 .subtitulo-center-negro {
-    @include m.titulo(v.$negro, 1.7rem, 2.6rem, center);
+    @include m.titulo(v.$negro, 1.7rem, 2.6rem, center, uppercase);
 }

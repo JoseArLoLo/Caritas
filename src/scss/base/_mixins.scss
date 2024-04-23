@@ -49,11 +49,11 @@
         grid-template-columns: 1fr 2fr;
     }
 }
-@mixin titulo($color, $font-min, $font-max, $align) {
+@mixin titulo($color, $font-min, $font-max, $align, $textcase) {
     text-align: $align;
     color: $color;
     font-weight: bold;
-    text-transform: uppercase;
+    text-transform: $textcase;
     font-size: $font-min;
     @include small {
         font-size: $font-max;
