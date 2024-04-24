@@ -18,7 +18,7 @@ incluirTemplate('header');
                 <?php while ($testimonio = mysqli_fetch_assoc($testimonios)) : ?>
                     <div class="testimonio">
                         <div class="contedor-testimonio-img">
-                            <img class="testimonio-img" width="200" height="200" src="/testimonios/<?php echo $testimonio['image']; ?>" alt="testimonio">
+                            <img class="testimonio-img" width="200" height="200" src="/uploads/testimonios/<?php echo $testimonio['image']; ?>" alt="testimonio">
                         </div>
                         <div class="testimonio-info">
                             <h2 class="subtitulo-left-negro"><?php echo $testimonio['name']; ?></h2>

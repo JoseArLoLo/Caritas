@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($errores)) {
         // Crear carpeta
-        $carpetaImagenes = "../../testimonios/";
+        $carpetaImagenes = "../../uploads/testimonios/";
         if (!is_dir($carpetaImagenes)) {
             mkdir($carpetaImagenes);
         }
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($image['name']) {
             // Eliminar imagen anterior en caso de existir
-            $carpetaImagenes = '../../testimonios/';
+            $carpetaImagenes = '../../uploads/testimonios/';
             unlink($carpetaImagenes . $variable["image"]);
             //Generar un nombre unico
             $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
@@ -106,7 +106,7 @@ incluirTemplate('header');
                 <label for="imagen">Imagen:</label>
                 <input type="file" id="imagen" accept="image/jpeg, image/png" name="imagen">
 
-                <img src="/testimonios/<?php echo $imagenTestimonio; ?>" class="imagen-small">
+                <img src="/uploads/testimonios/<?php echo $imagenTestimonio; ?>" class="imagen-small">
 
                 <label for="publication">Fecha del testimonio:</label>
                 <input type="date" id="publication" name="publication" placeholder="Fecha de publicacion" onchange="validarFecha()" value="<?php echo $publication; ?>">

@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if (empty($errores)) {
         // Crear carpeta
-        $carpetaImagenes = "../../testimonios/";
+        $carpetaImagenes = "../../uploads/testimonios/";
         if (!is_dir($carpetaImagenes)) {
             mkdir($carpetaImagenes);
         }

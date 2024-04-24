@@ -36,7 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (in_array($table, $data) && $id) {
         switch ($table) {
             case "testimonios":
-                $carpetaImagenes = '../testimonios/';
+                $carpetaImagenes = '../uploads/testimonios/';
+                unlink($carpetaImagenes . $_POST['image']);
+                break;
+            case "galeria":
+                $carpetaImagenes = '../uploads/galeria/';
                 unlink($carpetaImagenes . $_POST['image']);
                 break;
         }
@@ -70,9 +74,48 @@ incluirTemplate('header');
             <p class="alerta exito">Testimonio creado correctamente</p>
         <?php elseif ($resultado == 6) : ?>
             <p class="alerta exito">Testimonio actualizado correctamente</p>
+        <?php elseif ($resultado == 7) : ?>
+            <p class="alerta exito">Añadido a galeria correctamente</p>
+        <?php elseif ($resultado == 8) : ?>
+            <p class="alerta exito">Imagen de galeria actualizada correctamente</p>
         <?php endif; ?>
 
         <div class="tablas_administrables">
+            <div class="elementos" id="galeria-imgs">
+                <h2 class="subtitulo-center-rojo">Imagenes en galeria</h2>
+                <a class="boton-rojo" href="/admin/galeria/crear.php">Nueva Imagen</a>
+                <div class="contenedor-tabla">
+                    <table class="tabla">
+                        <thead>
+                            <th>ID</th>
+                            <th>Imagen</th>
+                            <th>Titulo</th>
+                            <th>Descripcion</th>
+                            <th>Acciones</th>
+                        </thead>
+                        <tbody>
+                            <?php while ($imagen = mysqli_fetch_assoc($galeria)) : ?>
+                                <tr>
+                                    <td><?php echo $imagen['id']; ?></td>
+                                    <td><img src="/uploads/galeria/<?php echo $imagen['image']; ?>" class="imagen-tabla"></td>
+                                    <td><?php echo $imagen['title']; ?></td>
+                                    <td><?php echo $imagen['description']; ?></td>
+                                    <td>
+                                        <form method="post" class="w-100">
+                                            <input type="hidden" name="id" value="<?php echo $imagen['id']; ?>">
+                                            <input type="hidden" name="data" value="galeria">
+                                            <input type="hidden" name="image" value="<?php echo $imagen['image']; ?>">
+                                            <input type="submit" class="boton-negro-block" value="Eliminar">
+                                        </form>
+
+                                        <a href="/admin/galeria/actualizar.php?id=<?php echo $imagen['id']; ?>" class="boton-rojo-block">Actualizar</a>
+                                    </td>
+                                </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!--Seccion Imagenes galeria-->
             <div class="elementos" id="preguntas">
                 <h2 class="subtitulo-center-rojo">Preguntas Frecuentes</h2>
                 <a class="boton-rojo" href="/admin/preguntas/crear.php">Nueva pregunta</a>
@@ -156,7 +199,7 @@ incluirTemplate('header');
                                     <td><?php echo $testimonio['id']; ?></td>
                                     <td><?php echo $testimonio['name']; ?></td>
                                     <td><?php echo $testimonio['info']; ?></td>
-                                    <td><img src="/testimonios/<?php echo $testimonio['image']; ?>" class="imagen-tabla"></td>
+                                    <td><img src="/uploads/testimonios/<?php echo $testimonio['image']; ?>" class="imagen-tabla"></td>
                                     <td><?php echo $testimonio['publication']; ?></td>
                                     <td>
                                         <form method="post" class="w-100">

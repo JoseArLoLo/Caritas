@@ -1,5 +1,10 @@
 <?php
 require 'includes/funciones.php';
+// Importar la conexion para cargar datos de tablero
+$db = conectarBD();
+
+$query = "SELECT * FROM galeria";
+$imagenes = mysqli_query($db, $query);
 incluirTemplate('header');
 ?>
 <main class="contenedor seccion">
@@ -12,6 +17,10 @@ incluirTemplate('header');
                 <img class="gallery-img" src="/build/img/1951.jpg" alt="Miniatura 1" data-title="Título de la Imagen 3" data-description="Descripción de la Imagen 3">
                 <img class="gallery-img" src="/build/img/1968.jpg" alt="Miniatura 1" data-title="Título de la Imagen 1" data-description="Descripción de la Imagen 1">
                 <img class="gallery-img" src="/build/img/3.jpg" alt="Miniatura 1" data-title="Título de la Imagen 2" data-description="Descripción de la Imagen 2">
+                <?php while ($imagen = mysqli_fetch_assoc($imagenes)) : ?>
+
+                    <img class="gallery-img" src="/uploads/galeria/<?php echo $imagen['image'] ?>" alt="Miniatura" data-title="<?php echo $imagen['title'] ?>" data-description="<?php echo $imagen['description'] ?>">
+                <?php endwhile; ?>
             </div>
         </div>
 
@@ -23,7 +32,9 @@ incluirTemplate('header');
                         <div class="close-icon">&times;</div>
                     </div>
                     <div class="modal-content">
-                        <img id="modal-image" src="" alt="">
+                        <div class="modal-content-img">
+                            <img id="modal-image" src="" alt="">
+                        </div>
                         <div class="caption">
                             <h2 class="titulo-interno-center" id="modal-title"></h2>
                             <p id="modal-description"></p>
@@ -64,36 +75,37 @@ incluirTemplate('header');
             });
         });
         // Función para cerrar el visualizador
-    function closeModal() {
-        toggleScrollLock()
-        modal.style.display = 'none';
-    }
+        function closeModal() {
+            toggleScrollLock()
+            modal.style.display = 'none';
+        }
 
-    // Función para mostrar la imagen anterior
-    function showPrevImage() {
-        currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
-        showModal(currentIndex);
-    }
+        // Función para mostrar la imagen anterior
+        function showPrevImage() {
+            currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+            showModal(currentIndex);
+        }
 
-    // Función para mostrar la siguiente imagen
-    function showNextImage() {
-        currentIndex = (currentIndex + 1) % thumbnails.length;
-        showModal(currentIndex);
-    }
-    // Event listeners para botones de navegación
-    prevBtn.addEventListener('click', showPrevImage);
-    nextBtn.addEventListener('click', showNextImage);
-    closeBtn.addEventListener('click', closeModal);
+        // Función para mostrar la siguiente imagen
+        function showNextImage() {
+            currentIndex = (currentIndex + 1) % thumbnails.length;
+            showModal(currentIndex);
+        }
+        // Event listeners para botones de navegación
+        prevBtn.addEventListener('click', showPrevImage);
+        nextBtn.addEventListener('click', showNextImage);
+        closeBtn.addEventListener('click', closeModal);
     });
+
     function toggleScrollLock() {
-    // Verificar si el cuerpo de la página está actualmente con scroll bloqueado
-    if (document.body.style.overflowY === 'hidden') {
-        // Desbloquear scroll
-        document.body.style.overflowY = 'auto';
-    } else {
-        // Bloquear scroll
-        document.body.style.overflowY = 'hidden';
+        // Verificar si el cuerpo de la página está actualmente con scroll bloqueado
+        if (document.body.style.overflowY === 'hidden') {
+            // Desbloquear scroll
+            document.body.style.overflowY = 'auto';
+        } else {
+            // Bloquear scroll
+            document.body.style.overflowY = 'hidden';
+        }
     }
-}
 </script>
 <?php incluirTemplate('footer'); ?>
