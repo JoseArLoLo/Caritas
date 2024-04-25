@@ -43,6 +43,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $carpetaImagenes = '../uploads/galeria/';
                 unlink($carpetaImagenes . $_POST['image']);
                 break;
+            case "eventos":
+                $carpetaImagenes = '../uploads/eventos/';
+                unlink($carpetaImagenes . $_POST['image']);
+                break;
         }
 
         // Eliminar Entidad
@@ -78,9 +82,52 @@ incluirTemplate('header');
             <p class="alerta exito">Añadido a galeria correctamente</p>
         <?php elseif ($resultado == 8) : ?>
             <p class="alerta exito">Imagen de galeria actualizada correctamente</p>
+        <?php elseif ($resultado == 9) : ?>
+            <p class="alerta exito">Evento creado correctamente</p>
+        <?php elseif ($resultado == 10) : ?>
+            <p class="alerta exito">Evento actualizado correctamente</p>
         <?php endif; ?>
 
         <div class="tablas_administrables">
+            <div class="elementos" id="eventos">
+                <h2 class="subtitulo-center-rojo">Eventos</h2>
+                <a class="boton-rojo" href="/admin/eventos/crear.php">Nuevo evento</a>
+                <div class="contenedor-tabla">
+                    <table class="tabla">
+                        <thead>
+                            <th>ID</th>
+                            <th>Titulo</th>
+                            <th>Imagen</th>
+                            <th>Descripcion</th>
+                            <th>Contenido</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </thead>
+                        <tbody>
+                            <?php while ($evento = mysqli_fetch_assoc($eventos)) : ?>
+                                <tr>
+                                    <td><?php echo $evento['id']; ?></td>
+                                    <td><?php echo $evento['title']; ?></td>
+                                    <td><img src="/uploads/eventos/<?php echo $evento['image']; ?>" class="imagen-tabla"></td>
+                                    <td><?php echo $evento['description']; ?></td>
+                                    <td><?php echo $evento['content']; ?></td>
+                                    <td><?php echo $evento['due']; ?></td>
+                                    <td>
+                                        <form method="post" class="w-100">
+                                            <input type="hidden" name="id" value="<?php echo $evento['id']; ?>">
+                                            <input type="hidden" name="data" value="eventos">
+                                            <input type="hidden" name="image" value="<?php echo $evento['image']; ?>">
+                                            <input type="submit" class="boton-negro-block" value="Eliminar">
+                                        </form>
+
+                                        <a href="/admin/eventos/actualizar.php?id=<?php echo $evento['id']; ?>" class="boton-rojo-block">Actualizar</a>
+                                    </td>
+                                </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!--Seccion Imagenes galeria-->
             <div class="elementos" id="galeria-imgs">
                 <h2 class="subtitulo-center-rojo">Imagenes en galeria</h2>
                 <a class="boton-rojo" href="/admin/galeria/crear.php">Nueva Imagen</a>
