@@ -24,7 +24,7 @@ $errores = [];
 // Elementos de la tabla
 $title = $variable['title'];
 $description = $variable['description'];
-$image = $variable['image'];
+$imagen = $variable['image'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = mysqli_real_escape_string($db, s($_POST['title']));
@@ -99,7 +99,7 @@ incluirTemplate('header');
 
                 <label for="imagen">Imagen:</label>
                 <input type="file" id="imagen" accept="image/jpeg, image/png" name="imagen">
-                <img src="/uploads/galeria/<?php echo $image; ?>" class="imagen-small">
+                <img src="/uploads/galeria/<?php echo $imagen; ?>" class="imagen-small">
             </fieldset>
 
             <input type="submit" value="Actualizar imagen" class="boton-rojo">
