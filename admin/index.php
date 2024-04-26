@@ -47,6 +47,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $carpetaImagenes = '../uploads/eventos/';
                 unlink($carpetaImagenes . $_POST['image']);
                 break;
+            case "anuncios":
+                $carpetaImagenes = '../uploads/anuncios/';
+                unlink($carpetaImagenes . $_POST['image']);
+                break;
         }
 
         // Eliminar Entidad
@@ -86,9 +90,52 @@ incluirTemplate('header');
             <p class="alerta exito">Evento creado correctamente</p>
         <?php elseif ($resultado == 10) : ?>
             <p class="alerta exito">Evento actualizado correctamente</p>
+        <?php elseif ($resultado == 11) : ?>
+            <p class="alerta exito">Anuncio creado correctamente</p>
+        <?php elseif ($resultado == 12) : ?>
+            <p class="alerta exito">Anuncio actualizado correctamente</p>
         <?php endif; ?>
 
         <div class="tablas_administrables">
+            <div class="elementos" id="anuncios">
+                <h2 class="subtitulo-center-rojo">Anuncios</h2>
+                <a class="boton-rojo" href="/admin/anuncios/crear.php">Nuevo anuncio</a>
+                <div class="contenedor-tabla">
+                    <table class="tabla">
+                        <thead>
+                            <th>ID</th>
+                            <th>Titulo</th>
+                            <th>Imagen</th>
+                            <th>Descripcion</th>
+                            <th>Contenido</th>
+                            <th>Creacion</th>
+                            <th>Acciones</th>
+                        </thead>
+                        <tbody>
+                            <?php while ($anuncio = mysqli_fetch_assoc($anuncios)) : ?>
+                                <tr>
+                                    <td><?php echo $anuncio['id']; ?></td>
+                                    <td><?php echo $anuncio['title']; ?></td>
+                                    <td><img src="/uploads/anuncios/<?php echo $anuncio['image']; ?>" class="imagen-tabla"></td>
+                                    <td><?php echo $anuncio['description']; ?></td>
+                                    <td><?php echo $anuncio['content']; ?></td>
+                                    <td><?php echo $anuncio['created']; ?></td>
+                                    <td>
+                                        <form method="post" class="w-100">
+                                            <input type="hidden" name="id" value="<?php echo $anuncio['id']; ?>">
+                                            <input type="hidden" name="data" value="anuncios">
+                                            <input type="hidden" name="image" value="<?php echo $anuncio['image']; ?>">
+                                            <input type="submit" class="boton-negro-block" value="Eliminar">
+                                        </form>
+
+                                        <a href="/admin/anuncios/actualizar.php?id=<?php echo $anuncio['id']; ?>" class="boton-rojo-block">Actualizar</a>
+                                    </td>
+                                </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div><!--Seccion Anuncios-->
             <div class="elementos" id="eventos">
                 <h2 class="subtitulo-center-rojo">Eventos</h2>
                 <a class="boton-rojo" href="/admin/eventos/crear.php">Nuevo evento</a>
@@ -127,7 +174,7 @@ incluirTemplate('header');
                         </tbody>
                     </table>
                 </div>
-            </div><!--Seccion Imagenes galeria-->
+            </div><!--Seccion Eventos-->
             <div class="elementos" id="galeria-imgs">
                 <h2 class="subtitulo-center-rojo">Imagenes en galeria</h2>
                 <a class="boton-rojo" href="/admin/galeria/crear.php">Nueva Imagen</a>
