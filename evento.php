@@ -1,23 +1,30 @@
 <?php
 require 'includes/funciones.php';
+// Validar que sea un id valido
+$id = $_GET['id'];
+$id = filter_var($id, FILTER_VALIDATE_INT);
+
+if (!$id) {
+    header('Location: /');
+}
+// Importar la conexion para cargar datos de tablero
+$db = conectarBD();
+
+// Obtener la variable en caso de existir
+$consulta = "SELECT * FROM eventos WHERE id = $id LIMIT 1";
+$resultado = mysqli_query($db, $consulta);
+$variable = mysqli_fetch_assoc($resultado);
 incluirTemplate('header');
 ?>
 <main class="contenedor seccion">
     <section class="section">
         <div class="cuerpo">
-            <h1 class="titulo-center-rojo">Titulo de evento</h1>
+            <h1 class="titulo-center-rojo"><?php echo $variable['title']; ?></h1>
             <div class="contenedor evento-individual">
-                <picture>
-                    <source srcset="/build/img/1.avif" type="image/avif">
-                    <source srcset="/build/img/1.webp" type="image/webp">
-                    <img loading="lazy" src="/build/img/1.jpg" alt="Banner baile" class="fondo">
-                </picture>
-                <p>Descripcion Corta: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem consequuntur assumenda minus, deleniti et sequi dolor iste provident natus rem nam iure labore, tempore veniam cum animi ut eligendi cumque.</p>
-                <p>Texto introductorio</p>
-                <p>Parrafos extra.</p>
-                <p class="subtitulo-right-negro">
-                    Fecha tentativa del evento
-                </p>
+                <img loading="lazy" src="/uploads/eventos/<?php echo $variable['image'];?>" alt="Banner baile" class="fondo">
+                <p><?php echo $variable['description'];?></p>
+                <p><?php echo $variable['content'];?></p>
+                <p class="subtitulo-right-negro"><?php echo fecha($variable['due']); ?></p>
             </div>
         </div>
     </section>

@@ -3,31 +3,39 @@
 
 section.seccion-anuncios {
     @include m.grid(1, 2rem);
+
     @include m.tablet {
         @include m.grid(2, 2rem);
     }
+
     @include m.desktop {
         @include m.grid(2, 2rem);
     }
+
     .anuncio {
         border: 1px solid v.$rojo;
         border-radius: 1rem;
+
         .anuncio-titulo {
             margin: 0.5rem;
         }
+
         .contenido-anuncio {
             margin: 0.5rem;
             @include m.grid-2(2rem);
             grid-template-columns: unset;
             gap: 1rem;
+
             @include m.telefono {
                 grid-template-columns: 1fr 2fr;
                 gap: 2rem;
             }
+
             p {
                 color: v.$rojo;
                 margin: 0;
                 font-size: 1.6rem;
+
                 &:last-child {
                     color: darken(v.$blanco, 50%);
                     margin-top: 1rem;
@@ -35,13 +43,23 @@ section.seccion-anuncios {
                 }
             }
         }
+
         img.contenido-anuncio-imagen {
+            height: auto;
+            max-height: inherit;
+            max-width: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            width: auto;
             border-radius: 1rem;
-            @include m.telefono {
-                border-radius: unset;
-            }
-            align-self: center;
             margin: 0 auto;
+            justify-self: center;
+            align-self: center;
+
+            @include m.desktop {
+                padding: .5rem;
+                border-radius: 2rem;
+            }
         }
     }
 }

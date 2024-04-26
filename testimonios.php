@@ -31,4 +31,7 @@ incluirTemplate('header');
         </div>
     </section>
 </main>
-<?php incluirTemplate('footer'); ?>
+<?php 
+mysqli_close($db);
+incluirTemplate('footer'); 
+?>

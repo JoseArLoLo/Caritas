@@ -1,23 +1,34 @@
 <?php
 require 'includes/funciones.php';
+// Validar que sea un id valido
+$id = $_GET['id'];
+$id = filter_var($id, FILTER_VALIDATE_INT);
+
+if (!$id) {
+    header('Location: /');
+}
+// Importar la conexion para cargar datos de tablero
+$db = conectarBD();
+
+// Obtener la variable en caso de existir
+$consulta = "SELECT * FROM anuncios WHERE id = $id LIMIT 1";
+$resultado = mysqli_query($db, $consulta);
+$variable = mysqli_fetch_assoc($resultado);
+
 incluirTemplate('header');
 ?>
 <main class="contenedor seccion">
     <section class="section">
         <div class="cuerpo">
-            <h1 class="titulo-center-negro">Titulo de anuncio</h1>
+            <h1 class="titulo-center-negro"><?php echo $variable['title']; ?></h1>
             <div class="contenedor anuncio-individual">
-                <picture>
-                    <source srcset="/build/img/1.avif" type="image/avif">
-                    <source srcset="/build/img/1.webp" type="image/webp">
-                    <img loading="lazy" src="/build/img/1.jpg" alt="Banner baile" class="fondo">
-                </picture>
-                <h2 class="subtitulo-left-negro">Fecha de publicacion del anuncio</h2>
-                <p>Descripcion Corta: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem consequuntur assumenda minus, deleniti et sequi dolor iste provident natus rem nam iure labore, tempore veniam cum animi ut eligendi cumque.</p>
-                <p>Texto introductorio</p>
-                <p>Parrafos extra.</p>
+                <img loading="lazy" src="/uploads/anuncios/<?php echo $variable['image'];?>" alt="Imagen anuncio" class="fondo">
+                <h2 class="subtitulo-left-negro"><?php echo fecha($variable['created']); ?></h2>
+                <p><?php echo $variable['description'];?></p>
+                <p><?php echo $variable['content'];?></p>
             </div>
         </div>
     </section>
 </main>
-<?php incluirTemplate('footer'); ?>
+<?php mysqli_close($db);
+incluirTemplate('footer'); ?>

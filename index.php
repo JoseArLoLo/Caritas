@@ -1,5 +1,14 @@
 <?php
 require 'includes/funciones.php';
+
+$db = conectarBD();
+
+$query = "SELECT * FROM eventos ORDER BY id DESC LIMIT 3";
+$consulta_eventos = mysqli_query($db, $query);
+
+$query = "SELECT * FROM testimonios ORDER BY id DESC LIMIT 4";
+$testimonios = mysqli_query($db, $query);
+
 incluirTemplate('header');
 ?>
 <main>
@@ -114,57 +123,16 @@ incluirTemplate('header');
     <section class="section contenedor-eventos">
         <h1 class="titulo-center">Eventos</h1>
         <div class="eventos">
-            <a href="/evento.php" class="evento">
-                <img loading="lazy" class="evento-imagen" src="/build/img/1.jpg" alt="Imagen Evento">
-                <div class="evento-contenido">
-                    <h2 class="subtitulo-left-negro">Titulo</h2>
-                    <p>
-                        Descripcion corta: Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempore
-                        quisquam, ipsam dolor unde tempora quod culpa nihil ratione! Quibusdam dicta necessitatibus
-                        a nisi. Officia nulla quod maxime alias harum? Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Autem tempore quisquam, ipsam dolor unde tempora quod culpa nihil ratione!
-                        Quibusdam dicta necessitatibus a nisi. Officia nulla quod maxime alias harum? Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Autem tempore quisquam, ipsam dolor unde
-                        tempora quod culpa nihil ratione! Quibusdam dicta necessitatibus a nisi. Officia nulla quod
-                        maxime alias harum?
-                    </p>
-                    <p class="evento-fecha">Fecha tentativa del evento</p>
-                </div>
-            </a>
-            <a href="/evento.php" class="evento">
-                <img loading="lazy" class="evento-imagen" src="/build/img/1.jpg" alt="Imagen Evento">
-                <div class="evento-contenido">
-                    <h2 class="subtitulo-left-negro">Titulo</h2>
-                    <p>
-                        Descripcion corta: Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempore
-                        quisquam, ipsam dolor unde tempora quod culpa nihil ratione! Quibusdam dicta necessitatibus
-                        a nisi. Officia nulla quod maxime alias harum? Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Autem tempore quisquam, ipsam dolor unde tempora quod culpa nihil ratione!
-                        Quibusdam dicta necessitatibus a nisi. Officia nulla quod maxime alias harum? Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Autem tempore quisquam, ipsam dolor unde
-                        tempora quod culpa nihil ratione! Quibusdam dicta necessitatibus a nisi. Officia nulla quod
-                        maxime alias harum?
-                    </p>
-                    <p class="evento-fecha">Fecha tentativa del evento</p>
-                </div>
-            </a>
-            <a href="/evento.php" class="evento">
-                <img loading="lazy" class="evento-imagen" src="/build/img/1.jpg" alt="Imagen Evento">
-                <div class="evento-contenido">
-                    <h2 class="subtitulo-left-negro">Titulo</h2>
-                    <p>
-                        Descripcion corta: Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempore
-                        quisquam, ipsam dolor unde tempora quod culpa nihil ratione! Quibusdam dicta necessitatibus
-                        a nisi. Officia nulla quod maxime alias harum? Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Autem tempore quisquam, ipsam dolor unde tempora quod culpa nihil ratione!
-                        Quibusdam dicta necessitatibus a nisi. Officia nulla quod maxime alias harum? Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Autem tempore quisquam, ipsam dolor unde
-                        tempora quod culpa nihil ratione! Quibusdam dicta necessitatibus a nisi. Officia nulla quod
-                        maxime alias harum?
-                    </p>
-                    <p class="evento-fecha">Fecha tentativa del evento</p>
-                </div>
-            </a>
+            <?php while ($evento = mysqli_fetch_assoc($consulta_eventos)) : ?>
+                <a href="/evento.php?id=<?php echo $evento['id']; ?>" class="evento">
+                    <img loading="lazy" class="evento-imagen" src="/uploads/eventos/<?php echo $evento['image']; ?>" alt="Imagen Evento">
+                    <div class="evento-contenido">
+                        <h2 class="subtitulo-left-negro"><?php echo $evento['title']; ?></h2>
+                        <p><?php echo $evento['description']; ?></p>
+                        <p class="evento-fecha"><?php echo fecha($evento['due']); ?></p>
+                    </div>
+                </a>
+            <?php endwhile; ?>
         </div>
     </section>
     <img src="/svg/ondas-reverb2.svg" class="onda" alt="onda">
@@ -172,48 +140,34 @@ incluirTemplate('header');
         <div class="contenedor-testimonios">
             <h1 class="titulo-center">Testimonios</h1>
             <div class="testimonios">
-                <div class="testimonio">
-                    <div class="contedor-testimonio-img">
-                        <img class="testimonio-img" src="/build/img/icono-asesorias.png" alt="testimonio">
+                <?php for ($i = 0; $i < 2; $i++) :
+                    $testimonio = mysqli_fetch_assoc($testimonios);
+                ?>
+                    <div class="testimonio">
+                        <div class="contedor-testimonio-img">
+                            <img class="testimonio-img" width="200" height="200" src="/uploads/testimonios/<?php echo $testimonio['image']; ?>" alt="testimonio">
+                        </div>
+                        <div class="testimonio-info">
+                            <h2 class="subtitulo-left-negro"><?php echo $testimonio['name']; ?></h2>
+                            <p><?php echo $testimonio['info']; ?></p>
+                            <h2 class="subtitulo-right-negro-2"><?php echo fecha($testimonio['publication']); ?></h2>
+                        </div>
                     </div>
-                    <div class="testimonio-info">
-                        <h2 class="subtitulo-left-negro">Nombre 1</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit minus molestias facere a? Repellendus omnis exercitationem, reiciendis culpa voluptatem aut sit debitis, dolore veritatis nobis iure fugit maxime commodi nostrum?</p>
-                        <h2 class="subtitulo-right-negro">Fecha</h2>
-                    </div>
-                </div>
-                <div class="testimonio">
-                    <div class="contedor-testimonio-img">
-                        <img class="testimonio-img" src="/build/img/icono-asesorias.png" alt="testimonio">
-                    </div>
-                    <div class="testimonio-info">
-                        <h2 class="subtitulo-left-negro">Nombre 2</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit minus molestias facere a? Repellendus omnis exercitationem, reiciendis culpa voluptatem aut sit debitis, dolore veritatis nobis iure fugit maxime commodi nostrum?</p>
-                        <h2 class="subtitulo-right-negro">Fecha</h2>
-                    </div>
-                </div>
+                <?php endfor; ?>
             </div>
             <div class="testimonios">
-                <div class="testimonio">
-                    <div class="contedor-testimonio-img">
-                        <img class="testimonio-img" src="/build/img/icono-asesorias.png" alt="testimonio">
+                <?php while ($testimonio = mysqli_fetch_assoc($testimonios)) : ?>
+                    <div class="testimonio">
+                        <div class="contedor-testimonio-img">
+                            <img class="testimonio-img" width="200" height="200" src="/uploads/testimonios/<?php echo $testimonio['image']; ?>" alt="testimonio">
+                        </div>
+                        <div class="testimonio-info">
+                            <h2 class="subtitulo-left-negro"><?php echo $testimonio['name']; ?></h2>
+                            <p><?php echo $testimonio['info']; ?></p>
+                            <h2 class="subtitulo-right-negro-2"><?php echo fecha($testimonio['publication']); ?></h2>
+                        </div>
                     </div>
-                    <div class="testimonio-info">
-                        <h2 class="subtitulo-left-negro">Nombre 3</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit minus molestias facere a? Repellendus omnis exercitationem, reiciendis culpa voluptatem aut sit debitis, dolore veritatis nobis iure fugit maxime commodi nostrum?</p>
-                        <h2 class="subtitulo-right-negro">Fecha</h2>
-                    </div>
-                </div>
-                <div class="testimonio">
-                    <div class="contedor-testimonio-img">
-                        <img class="testimonio-img" src="/build/img/icono-asesorias.png" alt="testimonio">
-                    </div>
-                    <div class="testimonio-info">
-                        <h2 class="subtitulo-left-negro">Nombre 4</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit minus molestias facere a? Repellendus omnis exercitationem, reiciendis culpa voluptatem aut sit debitis, dolore veritatis nobis iure fugit maxime commodi nostrum?</p>
-                        <h2 class="subtitulo-right-negro">Fecha</h2>
-                    </div>
-                </div>
+                <?php endwhile; ?>
             </div>
             <div class="botones-testimonios">
                 <button class="boton" onclick="moveSlide(-1)"> ❮ </button>
