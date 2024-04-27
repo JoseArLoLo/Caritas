@@ -55,6 +55,7 @@
 .testimonio {
     @include m.grid-2-esp(1rem);
     flex: 0 0 calc(50% - 2rem);
+    width: 100%;
     max-width: 80rem;
     border: 1px solid v.$rojo;
     border-radius: 2rem;
