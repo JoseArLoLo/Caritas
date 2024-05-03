@@ -22,14 +22,17 @@ incluirTemplate('header', $donar = true, $eventos = false);
                 <label for="cvv">CVV:</label>
                 <input type="text" id="cvv" name="cvv" required>
             </div>
+            <div class="campo">
+                <label for="correo">CORREO:</label>
+                <input type="text" id="correo" name="correo" required>
+            </div>
+            <div class="campo">
+                <label for="monto">MONTO:</label>
+                <input type="text" id="monto" name="monto" required>
+            </div>
+            <input type="text" hidden name="description" id="description" value="Donativo">
             <button type="submit">DONAR</button>
         </form>
-        <a href="">
-            <div class="extra">
-                <p>Tambien puedes donar via paypal</p>
-                <img src="/svg/paypal.svg" alt="donar por paypal">
-            </div>
-        </a>
     </div>
 </main>
 <?php incluirTemplate('footer'); ?>
