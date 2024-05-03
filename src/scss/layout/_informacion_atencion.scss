@@ -45,6 +45,14 @@ div.informacion-atencion {
         .atencion-contenido {
             text-align: center;
         }
+        &.medios-esp {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+            max-width: unset;
+            flex-wrap: wrap;
+        }
     }
 
     img.icono_atencion {

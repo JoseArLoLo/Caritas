@@ -72,7 +72,7 @@ incluirTemplate('header');
             <div class="informacion-atencion">
                 <h2 style="margin-top:1rem" class="subtitulo-center-rojo">¿Estas interesado?</h2>
                 <h2 style="margin-top:1rem" class="subtitulo-center-rojo">¡Contactanos!</h2>
-                <div class="medios">
+                <div class="medios medios-esp">
                     <a class="atencion-contenido atencion-contenido-logo" href="https://wa.me/526671726395"> <img class="icono_atencion" src="/svg/whatsapp.svg" alt="icono whatsapp">
                         <p class="atencion-contenido">Whatsapp</p>
                     </a>
@@ -80,11 +80,6 @@ incluirTemplate('header');
                         <p class="atencion-contenido">Correo</p>
                     </a>
                 </div>
-                <p class="atencion-info">Domicilio</p>
-                <a class="atencion-contenido atencion-contenido-direccion" href="https://maps.app.goo.gl/TU9w52Au6AXRFa297">
-                    <img loading="lazy" src="/svg/ubicacion.svg" alt="ubicacion-icon">
-                    <p>Arnulfo Rodríguez #5709 Norte. Col. Los Alamitos</p>
-                </a>
             </div>
         </div>
 
