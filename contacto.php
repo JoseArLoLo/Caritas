@@ -32,7 +32,10 @@ incluirTemplate('header');
                             <p class="atencion-contenido">Llamar</p>
                         </a>
                         <a class="atencion-contenido atencion-contenido-logo" href="https://wa.me/526671726395"> <img class="icono_atencion" src="/svg/whatsapp.svg" alt="icono whatsapp">
-                            <p class="atencion-contenido"> Whatsapp</p>
+                            <p class="atencion-contenido">Whatsapp</p>
+                        </a>
+                        <a class="atencion-contenido atencion-contenido-logo" href="mailto:contacto@caritasdiocesana.org"> <img class="icono_atencion" src="/svg/correo.svg" alt="icono whatsapp">
+                            <p class="atencion-contenido">Correo</p>
                         </a>
                     </div>
                     <p class="atencion-info">Domicilio</p>

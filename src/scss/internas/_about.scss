@@ -49,6 +49,10 @@ main.about {
             position: relative;
             background-color: inherit;
             width: 50%;
+            margin-top: -10rem;
+            &:first-child {
+                margin-top: 0;
+            }
         }
 
         .historia-content::after {
@@ -105,10 +109,19 @@ main.about {
         }
 
         .content {
-            padding: 20px 30px;
+            padding: 0.5rem 1rem;
             background-color: white;
             position: relative;
-            border-radius: 6px;
+            border-radius: 0.5rem;
+
+            p {
+                margin: 0;
+            }
+            img.historia-content-image {
+                max-width: 30rem;
+                margin: 0 auto;
+                margin-bottom: 0.5rem;
+            }
         }
 
         @media screen and (max-width: 600px) {
@@ -120,6 +133,7 @@ main.about {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
+                margin: 0;
             }
 
             .historia-content::before {
