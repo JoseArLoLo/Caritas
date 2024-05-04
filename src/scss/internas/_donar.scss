@@ -49,14 +49,19 @@
                 display: block;
                 font-weight: bold;
             }
-            input[type="text"] {
+            input[type="text"], input[type="email"], input[type="number"] {
                 width: 100%;
                 padding: 1rem;
                 border: 1px solid v.$negro;
                 border-radius: 5rem;
+
+                &.esp {
+                    display: inline-block;
+                    width: 45%;
+                }
             }
         }
-        button[type="submit"] {
+        button.btn-donar {
             font-weight: bold;
             padding: 1rem 2rem;
             background-color: v.$rojo;

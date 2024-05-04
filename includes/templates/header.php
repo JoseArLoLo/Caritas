@@ -1,27 +1,31 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" <?php echo $agradecer === true ? 'style="height: 100%;margin: 0;display: flex;justify-content: center;align-items: center;"' : ''; ?>>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta 
-    name="description" 
-    content="Pagina web oficial de caritas lomita I.A.P">
+    <meta name="description" content="Pagina web oficial de caritas lomita I.A.P">
     <title>Cáritas Lomita I.A.P</title>
     <link rel="shortcut icon" href="/svg/logo caritas.svg">
     <link rel="stylesheet" href="/build/css/app.css">
+    <?php if ($donar == true && $eventos == false) : ?>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+        <script type="text/javascript" src="https://cdn.conekta.io/js/latest/conekta.js"></script>
+    <?php endif; ?>
 </head>
 
-<body <?php 
-    if ($donar === true){
-        echo 'style="background-color: #bf1616;"';
-    } else if ($eventos === true){
-        echo 'style="background-color: #1d1d1d;"';
-    }else{
-        echo 'style="background-color: #ffffff;"';
-    }?>
-    >
-    <header class="header" <?php echo $eventos === true ?'style="background-color: #ffffff;"' : '';?>>
+<body <?php
+        if ($donar === true) {
+            echo 'style="background-color: #bf1616;"';
+        } else if ($eventos === true) {
+            echo 'style="background-color: #1d1d1d;"';
+        } else {
+            echo 'style="background-color: #ffffff;"';
+        } ?>>
+    <?php if (!$agradecer): ?>
+    <header class="header" <?php echo $eventos === true ? 'style="background-color: #ffffff;"' : ''; ?>>
         <div class="superior">
             <div>
                 <a href="/" class="logo">
@@ -129,3 +133,4 @@
             </ul>
         </nav>
     </header>
+    <?php endif;?>

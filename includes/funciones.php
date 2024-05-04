@@ -1,7 +1,7 @@
 <?php
 require 'app.php';
 require 'config/database.php';
-function incluirTemplate( string $nombre, $donar = false, $eventos = false) {
+function incluirTemplate( string $nombre, $donar = false, $eventos = false, $agradecer = false) {
     include TEMPLATES_URL . "/$nombre.php";
 }
 //Para condiciones if de ser necesario
