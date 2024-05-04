@@ -12,6 +12,5 @@ incluirTemplate('header', false, false, true);
 <h1 class="titulo-center-rojo">GRACIAS POR TU DONACION!</h1>
 <?php
 //Cerrar la conexion sqli (Opcional)
-mysqli_close($db);
 incluirTemplate('footer');
 ?>
