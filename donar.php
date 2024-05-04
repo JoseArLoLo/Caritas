@@ -52,7 +52,7 @@ incluirTemplate('header', $donar = true, $eventos = false);
     }
     var conektaErrorResponseHandler = function(response) {
         var form = $('#card-form');
-        alert(response.message_to_purchaser);
+        alert("Hubo un error en los datos de la tarjeta");
     }
     $(document).ready(function() {
         $('#card-form').submit(function(e) {
@@ -76,7 +76,7 @@ incluirTemplate('header', $donar = true, $eventos = false);
                     window.location.href = 'agradecimiento.php';
                     boton.disabled = false;
                 } else {
-                    alert("Hubo un error en los datos de la tarjeta");
+                    alert("Hubo un error al intentar usar la tarjeta");
                     boton.disabled = false;
                 }
             }
