@@ -76,5 +76,11 @@
                 color: v.$negro;
             }
         }
+        #boton-donar {
+            &:disabled {
+                background-color: v.$negro;
+                color: v.$blanco;
+            }
+        }
     }
 }

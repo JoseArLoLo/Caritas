@@ -46,7 +46,6 @@ incluirTemplate('header', $donar = true, $eventos = false);
     boton.disabled = false;
     var conektaSuccessResponseHandler = function(token) {
         $('#conektaTokenId').val(token.id);
-        boton.disabled = true;
         jsPay();
         // console.log(token.id);
     }
@@ -56,6 +55,7 @@ incluirTemplate('header', $donar = true, $eventos = false);
     }
     $(document).ready(function() {
         $('#card-form').submit(function(e) {
+            boton.disabled = true;
             e.preventDefault();
             var form = $('#card-form');
             Conekta.Token.create(form, conektaSuccessResponseHandler, conektaErrorResponseHandler);
