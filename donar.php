@@ -22,9 +22,9 @@ incluirTemplate('header', $donar = true, $eventos = false);
             <div class="campo">
                 <label for="fecha">Fecha de Vencimiento:</label>
                 <center>
-                    <input type="text" maxlength="2" data-conekta="card[exp_month]" class="esp" placeholder="Mes" required>
+                    <input type="text" id="month" maxlength="2" data-conekta="card[exp_month]" class="esp" placeholder="Mes" required>
                     <span>/</span>
-                    <input type="text" maxlength="2" data-conekta="card[exp_year]" class="esp" placeholder="Año" required>
+                    <input type="text" id="year" maxlength="2" data-conekta="card[exp_year]" class="esp" placeholder="Año" required>
                 </center>
             </div>
             <div class="campo">
@@ -33,7 +33,7 @@ incluirTemplate('header', $donar = true, $eventos = false);
             </div>
             <div class="campo">
                 <label for="total">MONTO:</label>
-                <input type="number" name="total" id="total" required>
+                <input type="number" name="total" id="total" min="10" max="1000000" oninput="validateAmount(this)" required>
             </div>
             <input type="text" hidden name="description" id="description" value="Donativo">
             <button id="boton-donar" class="btn-donar btn btn-success btn-lg">DONAR</button>
@@ -87,5 +87,66 @@ incluirTemplate('header', $donar = true, $eventos = false);
         $('.form-control').prop('value', '');
         $('#conektaTokenId').prop('value', '');
     }
+
+    function validateAmount(input) {
+        const min = 10;
+        const max = 1000000;
+        let value = parseInt(input.value, 10);
+
+        if (isNaN(value)) {
+            input.value = '';
+        } else if (value < min) {
+            input.value = min;
+        } else if (value > max) {
+            input.value = max;
+        }
+    }
+
+    function validateMonth(input) {
+        let value = parseInt(input.value, 10);
+
+        if (isNaN(value) || value < 1 || value > 12) {
+            input.classList.add('error');
+        } else {
+            input.classList.remove('error');
+        }
+    }
+
+    function validateYear(input) {
+        let value = parseInt(input.value, 10);
+        let currentYear = new Date().getFullYear() % 100; // Solo los últimos dos dígitos
+
+        if (isNaN(value) || value < currentYear || value > (currentYear + 10)) {
+            input.classList.add('error');
+        } else {
+            input.classList.remove('error');
+        }
+    }
+
+    function validateCardNumber(input) {
+        // Eliminar todos los caracteres no numéricos
+        input.value = input.value.replace(/\D/g, '');
+
+        // Validar longitud de 16 dígitos
+        if (input.value.length > 16) {
+            input.value = input.value.slice(0, 16);
+        }
+
+        // Verificación de campo vacío y longitud exacta
+        if (input.value.length === 16 || input.value.length === 0) {
+            input.classList.remove('error');
+        } else {
+            input.classList.add('error');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const monthInput = document.getElementById("month");
+        const yearInput = document.getElementById("year");
+        const cardInput = document.getElementById("card");
+        cardInput.addEventListener('input', () => validateCardNumber(cardInput));
+        monthInput.addEventListener('input', () => validateMonth(monthInput));
+        yearInput.addEventListener('input', () => validateYear(yearInput));
+    });
 </script>
 <?php incluirTemplate('footer'); ?>

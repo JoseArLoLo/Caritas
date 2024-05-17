@@ -42,6 +42,7 @@
     }
     .pagos {
         .campo {
+            
             margin-bottom: 2rem;
 
             label {
@@ -58,6 +59,9 @@
                 &.esp {
                     display: inline-block;
                     width: 45%;
+                }
+                &.error {
+                    border: .4rem solid red;
                 }
             }
         }
