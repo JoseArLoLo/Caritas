@@ -52,6 +52,7 @@ incluirTemplate('header', $donar = true, $eventos = false);
     var conektaErrorResponseHandler = function(response) {
         var form = $('#card-form');
         alert("Hubo un error en los datos de la tarjeta");
+        boton.disabled = false;
     }
     $(document).ready(function() {
         $('#card-form').submit(function(e) {
