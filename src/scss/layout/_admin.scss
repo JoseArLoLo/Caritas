@@ -23,6 +23,9 @@
     overflow-x: auto;
     width: 100%;
     height: 30rem;
+    &.esp {
+        height: 60rem;
+    }
 }
 .tablas_administrables {
     margin-top: 1rem;

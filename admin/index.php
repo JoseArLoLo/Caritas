@@ -68,6 +68,7 @@ incluirTemplate('header');
         <h1 class="titulo-center-rojo" style="margin: 1rem 0;">Panel de administración</h1>
         <div class="botones-admin">
             <a class="boton-rojo" href="/close-sesion.php">Cerrar Sesion</a>
+            <a class="boton-verde" href="/admin/donantes/">Donantes</a>
         </div>
 
         <?php if ($resultado == 1) : ?>

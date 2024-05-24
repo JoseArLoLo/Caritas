@@ -42,7 +42,17 @@ class Payment
     }
     public function Save()
     {
-        $conexion = new PDO('mysql:host=' . $this->ServerDB . ';dbname=' . $this->DataBaseDB, $this->UserDB, $this->PassDB);
+        // Configurar opciones de PDO
+        $options = [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES   => false,
+            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci'
+        ];
+
+        // Crear la conexión con el charset utf8mb4
+        $dsn = 'mysql:host=' . $this->ServerDB . ';dbname=' . $this->DataBaseDB . ';charset=utf8mb4';
+        $conexion = new PDO($dsn, $this->UserDB, $this->PassDB, $options);
 
         $query = "INSERT INTO payment (total, date_created, description, name, number_card, email, order_id)
 VALUES (:total, now(), :description, :name, :number_card, :email, :order_id)";
