@@ -33,7 +33,7 @@ incluirTemplate('header', $donar = true, $eventos = false);
             </div>
             <div class="campo">
                 <label for="total">MONTO:</label>
-                <input type="number" name="total" id="total" min="10" max="1000000" oninput="validateAmount(this)" required>
+                <input type="number" name="total" id="total" min="1" max="1000000" oninput="validateAmount(this)" required>
             </div>
             <input type="text" hidden name="description" id="description" value="Donativo">
             <button id="boton-donar" class="btn-donar btn btn-success btn-lg">DONAR</button>
@@ -90,7 +90,7 @@ incluirTemplate('header', $donar = true, $eventos = false);
     }
 
     function validateAmount(input) {
-        const min = 10;
+        const min = 1;
         const max = 1000000;
         let value = parseInt(input.value, 10);
 

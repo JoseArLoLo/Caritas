@@ -6,7 +6,7 @@ if (!estaAutenticado()) {
 // Importar la conexion para cargar datos de tablero
 $db = conectarBD();
 
-$query = "SELECT * FROM payment";
+$query = "SELECT * FROM payment ORDER BY date_created DESC, name DESC";
 $donadores = mysqli_query($db, $query);
 
 
