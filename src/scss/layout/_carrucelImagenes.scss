@@ -2,7 +2,7 @@
 @use "base/mixins" as m;
 .carrucel {
 	height: auto;
-	// max-height: 60rem;
+	max-height: 60rem;
 	overflow: hidden;
 	position: relative;
 	.overlay {
