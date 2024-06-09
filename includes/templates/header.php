@@ -20,7 +20,7 @@
         if ($donar === true) {
             echo 'style="background-color: #bf1616;"';
         } else if ($eventos === true) {
-            echo 'style="background-color: #1d1d1d;"';
+            echo 'style="background-color: #404040;"';
         } else {
             echo 'style="background-color: #ffffff;"';
         } ?>>
@@ -62,7 +62,7 @@
                 <li>
                     <a href="#">¿QUIENES SOMOS?</a>
                     <ul>
-                        <li><a href="/about.php#nosotros">Nosotros</a></li>
+                        <li><a href="/about.php">Nosotros</a></li>
                         <li><a href="/about.php#historia">Nuestra historia</a></li>
                         <li><a href="/about.php#nuestroinicio">Nuestro inicio</a></li>
                         <li><a href="/about.php#misionyvision">Misión y Visión</a></li>
@@ -124,8 +124,8 @@
                     <a href="#">Ayuda</a>
                     <ul>
                         <li><a href="/ayuda.php">¿Cómo Ayudar?</a></li>
-                        <li><a href="/preguntas-frecuentes.php">Preguntas Frecuentes</a></li>
-                        <li><a href="/opiniones-sugerencias.php">Opiniones y sugerencias</a></li>
+                        <!-- <li><a href="/preguntas-frecuentes.php">Preguntas Frecuentes</a></li>
+                        <li><a href="/opiniones-sugerencias.php">Opiniones y sugerencias</a></li> -->
                         <li><a href="/testimonios.php">Testimonios</a></li>
                     </ul>
                 </li>

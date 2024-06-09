@@ -2,7 +2,7 @@
 @use "base/mixins" as m;
 
 .contenedor-eventos {
-    background-color: v.$negro;
+    background-color: lighten(v.$negro, 13.85%) ;
     padding-bottom: 2rem;
 
     .eventos {

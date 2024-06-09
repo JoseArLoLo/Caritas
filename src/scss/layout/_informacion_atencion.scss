@@ -2,19 +2,25 @@
 @use "base/mixins" as m;
 
 div.informacion-atencion {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: flex-start;
     p {
         line-height: 1.1;
     }
-
     p.atencion-info {
         color: v.$rojo;
         font-weight: bold;
+        text-align: center;
     }
 
     p.atencion-contenido,
     a.atencion-contenido {
         color: v.$negro;
         font-weight: bold;
+        text-align: center;
         &.atencion-contenido-direccion {
             display: flex;
             flex-direction: row;
@@ -59,5 +65,13 @@ div.informacion-atencion {
         width: 5rem;
         height: 5rem;
         margin: 0 auto;
+    }
+    &.esp {
+        justify-content: unset;
+        p.atencion-contenido,
+        a.atencion-contenido,
+        p.atencion-info {
+            text-align: left;
+        }
     }
 }

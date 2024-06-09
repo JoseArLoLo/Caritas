@@ -41,26 +41,66 @@ incluirTemplate('header');
                 <h2 class="subtitulo-center-rojo">¿Qué objetos puedo donar?</h2>
                 <p>Aquí tienes una lista amplia de objetos que se pueden donar:</p>
                 <ul class="lista-comun">
-                    <li><p>Ropa en buen estado.</p></li>
-                    <li><p>Calzado.</p></li>
-                    <li><p>Juguetes y juegos.</p></li>
-                    <li><p>Libros.</p></li>
-                    <li><p>Artículos para el hogar, como utensilios de cocina, vajilla y electrodomésticos.</p></li>
-                    <li><p>Muebles en condiciones aceptables.</p></li>
-                    <li><p>Artículos de decoración para el hogar.</p></li>
-                    <li><p>Ropa de cama y toallas.</p></li>
-                    <li><p>Material escolar, como mochilas, lápices y cuadernos.</p></li>
-                    <li><p>Equipos deportivos.</p></li>
-                    <li><p>Productos de higiene personal y cuidado del bebé.</p></li>
-                    <li><p>Instrumentos musicales.</p></li>
-                    <li><p>Equipos electrónicos funcionales, como teléfonos móviles, tabletas o computadoras.</p></li>
-                    <li><p>Material de arte y manualidades.</p></li>
-                    <li><p>Productos de limpieza.</p></li>
-                    <li><p>Ropa de invierno, como abrigos, bufandas y guantes.</p></li>
-                    <li><p>Equipamiento para bebés, como cochecitos, cunas y sillas para el automóvil.</p></li>
-                    <li><p>Suministros médicos, como sillas de ruedas, muletas y bastones.</p></li>
-                    <li><p>Artículos de jardinería, como herramientas y macetas.</p></li>
-                    <li><p>Herramientas de trabajo que promuevan (pendiente)</p></li>
+                    <li>
+                        <p>Ropa en buen estado.</p>
+                    </li>
+                    <li>
+                        <p>Calzado.</p>
+                    </li>
+                    <li>
+                        <p>Juguetes y juegos.</p>
+                    </li>
+                    <li>
+                        <p>Libros.</p>
+                    </li>
+                    <li>
+                        <p>Artículos para el hogar, como utensilios de cocina, vajilla y electrodomésticos.</p>
+                    </li>
+                    <li>
+                        <p>Muebles en condiciones aceptables.</p>
+                    </li>
+                    <li>
+                        <p>Artículos de decoración para el hogar.</p>
+                    </li>
+                    <li>
+                        <p>Ropa de cama y toallas.</p>
+                    </li>
+                    <li>
+                        <p>Material escolar, como mochilas, lápices y cuadernos.</p>
+                    </li>
+                    <li>
+                        <p>Equipos deportivos.</p>
+                    </li>
+                    <li>
+                        <p>Productos de higiene personal y cuidado del bebé.</p>
+                    </li>
+                    <li>
+                        <p>Instrumentos musicales.</p>
+                    </li>
+                    <li>
+                        <p>Equipos electrónicos funcionales, como teléfonos móviles, tabletas o computadoras.</p>
+                    </li>
+                    <li>
+                        <p>Material de arte y manualidades.</p>
+                    </li>
+                    <li>
+                        <p>Productos de limpieza.</p>
+                    </li>
+                    <li>
+                        <p>Ropa de invierno, como abrigos, bufandas y guantes.</p>
+                    </li>
+                    <li>
+                        <p>Equipamiento para bebés, como cochecitos, cunas y sillas para el automóvil.</p>
+                    </li>
+                    <li>
+                        <p>Suministros médicos, como sillas de ruedas, muletas y bastones.</p>
+                    </li>
+                    <li>
+                        <p>Artículos de jardinería, como herramientas y macetas.</p>
+                    </li>
+                    <li>
+                        <p>Herramientas de trabajo que promuevan (pendiente)</p>
+                    </li>
                 </ul>
             </div>
             <div class="contenedor">
@@ -70,26 +110,32 @@ incluirTemplate('header');
                 </p>
             </div>
             <div class="informacion-atencion">
-                <p class="atencion-info">Horario de atención</p>
-                <p class="atencion-contenido">Viernes</p>
-                <p class="atencion-contenido">10:00 am – 11:30 am</p>
-                <p class="atencion-info">Contacto directo</p>
-                <p class="atencion-contenido">Medios disponibles</p>
-                <p class="atencion-contenido">667 172 6395</p>
-                <div class="medios">
-                    <a class="atencion-contenido atencion-contenido-logo" href="tel:6671726395"> <img class="icono_atencion" src="/svg/phone.svg" alt="icono telefono">
-                        <p class="atencion-contenido">Llamar</p>
-                    </a>
-                    <a class="atencion-contenido atencion-contenido-logo" href="https://wa.me/526671726395"> <img class="icono_atencion" src="/svg/whatsapp.svg" alt="icono whatsapp">
-                        <p class="atencion-contenido"> Whatsapp</p>
+                <div class="contacto_item">
+                    <p class="atencion-info">Horario de atención</p>
+                    <p class="atencion-contenido">Viernes</p>
+                    <p class="atencion-contenido">10:00 am – 11:30 am</p>
+                </div>
+                <div class="contacto_item">
+                    <p class="atencion-info">Contacto directo</p>
+                    <p class="atencion-contenido">Medios disponibles</p>
+                    <p class="atencion-contenido">667 172 6395</p>
+                    <div class="medios medios-esp">
+                        <a class="atencion-contenido atencion-contenido-logo" href="tel:6671726395"> <img class="icono_atencion" src="/svg/phone.svg" alt="icono telefono">
+                            <p class="atencion-contenido">Llamar</p>
+                        </a>
+                        <a class="atencion-contenido atencion-contenido-logo" href="https://wa.me/526671726395"> <img class="icono_atencion" src="/svg/whatsapp.svg" alt="icono whatsapp">
+                            <p class="atencion-contenido"> Whatsapp</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="contacto_item">
+                    <p class="atencion-info">Domicilio</p>
+                    <p><a class="atencion-contenido" href="https://maps.app.goo.gl/TU9w52Au6AXRFa297"></a></p>
+                    <a class="atencion-contenido atencion-contenido-direccion" href="https://maps.app.goo.gl/TU9w52Au6AXRFa297">
+                        <img loading="lazy" src="/svg/ubicacion.svg" alt="ubicacion-icon">
+                        <p>Arnulfo Rodríguez #5709 Norte. Col. Los Alamitos</p>
                     </a>
                 </div>
-                <p class="atencion-info">Domicilio</p>
-                <p><a class="atencion-contenido" href="https://maps.app.goo.gl/TU9w52Au6AXRFa297"></a></p>
-                <a class="atencion-contenido atencion-contenido-direccion" href="https://maps.app.goo.gl/TU9w52Au6AXRFa297">
-                    <img loading="lazy" src="/svg/ubicacion.svg" alt="ubicacion-icon">
-                    <p>Arnulfo Rodríguez #5709 Norte. Col. Los Alamitos</p>
-                </a>
             </div>
         </div>
     </section>

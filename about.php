@@ -8,7 +8,7 @@ incluirTemplate('header');
         <div class="contenedor contenedor-imagen">
             <p>
                 Cáritas es una institución de asistencia privada fundada en el año de 1989, que trabaja en promover la Caridad en nuestra Diócesis de Culiacán, a través de diversos programas de asistencia social y desarrollo humano, enfocados a los grupos más vulnerables de nuestra comunidad.
-                En la Diócesis de Culiacán, Cáritas tiene 34 años ayudando a los más necesitados del centro y norte del estado.
+                En la Diócesis de Culiacán, Cáritas tiene <?php echo (intval(date('Y')) - 1989);?> años ayudando a los más necesitados del centro y norte del estado.
             </p>
             <div class="contenedor-imagen-info">
                 <picture class="imagen-nosotros">
@@ -96,7 +96,7 @@ incluirTemplate('header');
                     <div class="historia-content-info">
                         <p><span>En 1989, Nace Cáritas en la Diócesis de Culiacán para ayudar a los más necesitados del centro y norte
                                 del
-                                estado, cumpliendo asi 34 años como una institución de pastoral social.</span>
+                                estado, cumpliendo asi <?php echo (intval(date('Y')) - 1989);?> años como una institución de pastoral social.</span>
                         </p>
                     </div>
                 </div>

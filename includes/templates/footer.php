@@ -26,8 +26,12 @@
                 </a>
             </div>
         </div>
+    </div>
+    <div class="footer_flex">
         <div class="footer_item">
-            <p>Ubicaciones</p>
+            <center>
+                <p>Ubicaciones</p>
+            </center>
             <div>
                 <a class="footer_item_flex" href="https://maps.app.goo.gl/Ncn2BpDRRH79xjsDA">
                     <img loading="lazy" width="50" height="55" src="/svg/ubicacion.svg" alt="ubicacion-icon">

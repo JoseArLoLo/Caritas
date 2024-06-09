@@ -69,9 +69,10 @@ incluirTemplate('header');
                     </div>
                 </div>
             </div>
+
+            <h2 style="margin-top:1rem" class="subtitulo-center-rojo">¿Estas interesado?</h2>
+            <h2 style="margin-top:1rem" class="subtitulo-center-rojo">¡Contactanos!</h2>
             <div class="informacion-atencion">
-                <h2 style="margin-top:1rem" class="subtitulo-center-rojo">¿Estas interesado?</h2>
-                <h2 style="margin-top:1rem" class="subtitulo-center-rojo">¡Contactanos!</h2>
                 <div class="medios medios-esp">
                     <a class="atencion-contenido atencion-contenido-logo" href="https://wa.me/526671726395"> <img class="icono_atencion" src="/svg/whatsapp.svg" alt="icono whatsapp">
                         <p class="atencion-contenido">Whatsapp</p>
