@@ -32,10 +32,20 @@ incluirTemplate('header', $donar = true, $eventos = false);
                 <input type="text" maxlength="4" data-conekta="card[cvc]" required>
             </div>
             <div class="campo">
-                <label for="total">MONTO:</label>
-                <input type="number" name="total" id="total" min="1" max="1000000" oninput="validateAmount(this)" required>
+                <label for="amountSelect">MONTO:</label>
+                <select required id="amountSelect" name="amountSelect" onchange="checkAmountOption(), validateTotalAmount(this)">
+                    <option value="100">$100 pesos</option>
+                    <option value="200">$200 pesos</option>
+                    <option value="300">$300 pesos</option>
+                    <option value="otros">Otra cantidad</option>
+                </select>
+                <div id="otherAmountDiv" class="hidden">
+                    <label for="otherAmount">Ingrese el monto:</label>
+                    <input type="number" id="otherAmount" name="otherAmount" min="25" placeholder="Monto mayor a 25" oninput="validateAmount(this), validateTotalAmount(this)">
+                </div>
             </div>
             <input type="text" hidden name="description" id="description" value="Donativo">
+            <input type="number" hidden name="total" id="total" min="0" max="1000000" value="100" oninput="validateAmount(this)">
             <button id="boton-donar" class="btn-donar btn btn-success btn-lg">DONAR</button>
         </form>
     </div>
@@ -65,12 +75,13 @@ incluirTemplate('header', $donar = true, $eventos = false);
 
     function jsPay() {
         let params = $('#card-form').serialize();
+        let updatedParams = params.split('&').filter(param => !param.startsWith('amountSelect=') && !param.startsWith('otherAmount=')).join('&');
         let url = 'pay.php';
 
         $.ajax({
             type: 'POST',
             url: url,
-            data: params,
+            data: updatedParams,
             success: function(data) {
                 if (data == 1) {
                     jsClean();
@@ -101,6 +112,20 @@ incluirTemplate('header', $donar = true, $eventos = false);
         } else if (value > max) {
             input.value = max;
         }
+    }
+    function validateTotalAmount(total) {
+        let totalBill = document.getElementById("total");
+        if (total.value !== "otros") {
+            totalBill.value = total.value;
+        }else {
+            let otherAmount = document.getElementById("otherAmount");
+            if (otherAmount.value === "") {
+                totalBill.value = 0;
+            }else{ 
+                totalBill.value = otherAmount.value;
+            }
+        }
+        console.log(totalBill.value);
     }
 
     function validateMonth(input) {
@@ -149,5 +174,27 @@ incluirTemplate('header', $donar = true, $eventos = false);
         monthInput.addEventListener('input', () => validateMonth(monthInput));
         yearInput.addEventListener('input', () => validateYear(yearInput));
     });
+
+    function checkAmountOption() {
+        var selectBox = document.getElementById('amountSelect');
+        var otherAmountDiv = document.getElementById('otherAmountDiv');
+        var inputAmount = document.getElementById('otherAmount');
+        if (selectBox.value === 'otros') {
+            otherAmountDiv.classList.remove('hidden');
+            inputAmount.required = true;
+        } else {
+            otherAmountDiv.classList.add('hidden');
+            inputAmount.required = false;
+        }
+    }
+
+    function validateOtherAmount() {
+        var otherAmountInput = document.getElementById('otherAmount');
+        var otherAmountValue = otherAmountInput.value;
+        if (otherAmountValue !== "" && otherAmountValue <= 25) {
+            alert('Por favor ingrese un monto mayor a 25.');
+            otherAmountInput.value = "";
+        }
+    }
 </script>
 <?php incluirTemplate('footer'); ?>
