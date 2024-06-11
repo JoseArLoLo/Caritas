@@ -20,7 +20,7 @@
         if ($donar === true) {
             echo 'style="background-color: #bf1616;"';
         } else if ($eventos === true) {
-            echo 'style="background-color: #404040;"';
+            echo 'style="background-color: #838383;"';
         } else {
             echo 'style="background-color: #ffffff;"';
         } ?>>
