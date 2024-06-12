@@ -3,45 +3,51 @@ require 'includes/funciones.php';
 incluirTemplate('header', $donar = true, $eventos = false);
 ?>
 <main>
+    <div class="fondo-donar"></div>
     <div class="contenedor contenedor-pagos">
-        <h2 class="titulo texto-mayuscula">Información de Pago</h2>
+        <h2 class="titulo texto-mayuscula">TU DONATIVO AYUDA MÁS
+            QUE MIL LIKES</h2>
+        <br>
         <form action="#" method="post" class="pagos" id="card-form">
             <input type="hidden" name="conektaTokenId" id="conektaTokenId" value="">
-            <div class="campo">
-                <label for="name">Nombre Completo:</label>
-                <input data-conekta="card[name]" type="text" id="name" name="name" placeholder="Nombre(s) y apellido(s)" required>
+            <div class="campo-donacion">
+                <div class="campo">
+                    <!-- <label for="name">Nombre Completo:</label> -->
+                    <input data-conekta="card[name]" type="text" id="name" name="name" placeholder="Nombre(s) y apellido(s)" required>
+                </div>
+                <div class="campo">
+                    <!-- <label for="email">Correo:</label> -->
+                    <input type="email" name="email" id="email" maxlength="200" placeholder="Correo electronico" required>
+                </div>
+                <div class="campo">
+                    <!-- <label for="amountSelect">MONTO:</label> -->
+                    <select required id="amountSelect" name="amountSelect" onchange="checkAmountOption(), validateTotalAmount(this)">
+                        <option value="100">$100 pesos mexicanos</option>
+                        <option value="200">$200 pesos mexicanos</option>
+                        <option value="300">$300 pesos mexicanos</option>
+                        <option value="otros">Otra cantidad</option>
+                    </select>
+                    <div id="otherAmountDiv" class="hidden">
+                        <input type="number" id="otherAmount" name="otherAmount" min="25" placeholder="Monto mayor a 25" oninput="validateAmount(this), validateTotalAmount(this)">
+                    </div>
+                </div>
             </div>
-            <div class="campo">
-                <label for="email">Correo:</label>
-                <input type="email" name="email" id="email" maxlength="200" placeholder="Correo electronico" required>
-            </div>
-            <div class="campo">
-                <label for="card">Número de Tarjeta:</label>
-                <input type="text" maxlength="16" data-conekta="card[number]" name="card" id="card" placeholder="Número de tarjeta" required>
-            </div>
-            <div class="campo">
-                <label for="fecha">Fecha de Vencimiento:</label>
-                <center>
-                    <input type="text" id="month" maxlength="2" data-conekta="card[exp_month]" class="esp" placeholder="Mes" required>
-                    <span>/</span>
-                    <input type="text" id="year" maxlength="2" data-conekta="card[exp_year]" class="esp" placeholder="Año" required>
-                </center>
-            </div>
-            <div class="campo">
-                <label>CVC</label>
-                <input type="text" maxlength="4" data-conekta="card[cvc]" required>
-            </div>
-            <div class="campo">
-                <label for="amountSelect">MONTO:</label>
-                <select required id="amountSelect" name="amountSelect" onchange="checkAmountOption(), validateTotalAmount(this)">
-                    <option value="100">$100 pesos</option>
-                    <option value="200">$200 pesos</option>
-                    <option value="300">$300 pesos</option>
-                    <option value="otros">Otra cantidad</option>
-                </select>
-                <div id="otherAmountDiv" class="hidden">
-                    <label for="otherAmount">Ingrese el monto:</label>
-                    <input type="number" id="otherAmount" name="otherAmount" min="25" placeholder="Monto mayor a 25" oninput="validateAmount(this), validateTotalAmount(this)">
+            <div class="campo-donacion">
+                <div class="campo">
+                    <!-- <label for="card">Número de Tarjeta:</label> -->
+                    <input type="text" maxlength="16" data-conekta="card[number]" name="card" id="card" placeholder="Número de tarjeta" required>
+                </div>
+                <div class="campo">
+                    <!-- <label for="fecha">Fecha de Vencimiento:</label> -->
+                    <center>
+                        <input type="text" id="month" maxlength="2" data-conekta="card[exp_month]" class="esp" placeholder="Mes vencimiento" required>
+                        <span>/</span>
+                        <input type="text" id="year" maxlength="2" data-conekta="card[exp_year]" class="esp" placeholder="Año vencimiento" required>
+                    </center>
+                </div>
+                <div class="campo">
+                    <!-- <label>CVC</label> -->
+                    <input type="text" placeholder="CVV" maxlength="4" data-conekta="card[cvc]" required>
                 </div>
             </div>
             <input type="text" hidden name="description" id="description" value="Donativo">
@@ -113,15 +119,17 @@ incluirTemplate('header', $donar = true, $eventos = false);
             input.value = max;
         }
     }
+
     function validateTotalAmount(total) {
         let totalBill = document.getElementById("total");
         if (total.value !== "otros") {
             totalBill.value = total.value;
-        }else {
+        } else {
             let otherAmount = document.getElementById("otherAmount");
+            otherAmount.focus();
             if (otherAmount.value === "") {
                 totalBill.value = 0;
-            }else{ 
+            } else {
                 totalBill.value = otherAmount.value;
             }
         }

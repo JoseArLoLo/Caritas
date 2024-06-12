@@ -1,22 +1,55 @@
 @use "base/variables" as v;
 @use "base/mixins" as m;
 
+.webp .fondo-donar {
+    background-image: url(../img/donativo-back.webp);
+}
+
+.no-webp .fondo-donar {
+    background-image: url(../img/donativo-back.png);
+}
+
+.fondo-donar {
+    height: 60rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#otherAmountDiv {
+    width: 90%;
+    margin-top: -4rem;
+}
+
+@include m.desktop {
+    .campo-donacion {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+}
+
 .contenedor-pagos {
     text-transform: uppercase;
     width: 90%;
     margin: 5rem auto;
+    margin-top: -30rem;
     padding: 2rem;
     background-color: lighten(v.$negro, 40%);
-    border: 0.2rem solid v.$blanco;
+    opacity: .9;
+    // border: 0.2rem solid v.$blanco;
     box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.2);
     border-radius: 1rem;
     color: v.$blanco;
+
     .extra {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: row;
         gap: .5rem;
+
         // @include m.telefono {
         //     flex-direction: row;
         //     gap: .5rem;
@@ -28,21 +61,25 @@
             font-weight: bold;
             text-decoration: underline;
         }
+
         img {
             display: inline-block;
-            width: 5rem;   
+            width: 5rem;
         }
     }
+
     h2 {
         text-align: center;
         font-size: 2.4rem;
+
         @include m.telefono {
             font-size: 3.6rem;
         }
     }
+
     .pagos {
         .campo {
-            
+
             margin-bottom: 2rem;
 
             label {
@@ -50,20 +87,28 @@
                 display: block;
                 font-weight: bold;
             }
-            select, input[type="text"], input[type="email"], input[type="number"] {
+
+            select,
+            input[type="text"],
+            input[type="email"],
+            input[type="number"] {
                 width: 100%;
                 padding: 1rem;
-                border: 1px solid v.$negro;
-                border-radius: 5rem;
+                // border: 1px solid v.$negro;
+                border: 0;
+                border-radius: 1rem;
+
                 &.esp {
                     display: inline-block;
                     width: 45%;
                 }
+
                 &.error {
                     border: .4rem solid red;
                 }
             }
         }
+
         button.btn-donar {
             font-weight: bold;
             padding: 1rem 2rem;
@@ -74,11 +119,13 @@
             width: 100%;
             cursor: pointer;
             transition: all 250ms ease-in;
+
             &:hover {
                 background-color: v.$blanco;
                 color: v.$negro;
             }
         }
+
         #boton-donar {
             &:disabled {
                 background-color: v.$negro;

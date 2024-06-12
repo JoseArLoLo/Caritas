@@ -18,7 +18,7 @@ incluirTemplate('header');
                 </picture>
 
                 <p>
-                    Atendemos a personas necesitadas de once municipios del estado de Sinaloa que abarca nuestra Diócesis de Culiacán, sin importar su procedencia, credo o nivel socioeconómico apoyándolos con programas de alimentación, salud, vestido y apoyos en casos especiales.
+                    Atendemos a personas necesitadas de once municipios del estado de Sinaloa que abarca nuestra Diócesis de Culiacán, apoyándolos con programas de alimentación, salud, vestido y apoyos en casos especiales.
                     Somos un vínculo entre quienes tienen algo que dar y los más necesitados, a través de la donación de nuestros bienhechores, programas efectivos de apoyo a los desprotegidos, planes de voluntariado y acción social por medio de las parroquias de la Diócesis.
                 </p>
             </div>
@@ -108,7 +108,7 @@ incluirTemplate('header');
         <div class="contenedor contenedor-imagen">
             <p>
                 Desde 1989 Cáritas se consolidó civilmente como una institución de asistencia privada.
-                Atendemos a personas necesitadas de once municipios del estado de Sinaloa que abarca nuestra Diócesis de Culiacán, sin importar su procedencia, credo o nivel socioeconómico apoyándolos con programas de alimentación, salud, vestido y apoyos en casos especiales.
+                Atendemos a personas necesitadas de once municipios del estado de Sinaloa que abarca nuestra Diócesis de Culiacán, apoyándolos con programas de alimentación, salud, vestido y apoyos en casos especiales.
                 Somos un vínculo entre quienes tienen algo que dar y los más necesitados, a través de la donación de nuestros bienhechores, programas efectivos de apoyo a los desprotegidos, planes de voluntariado y acción social por medio de las parroquias de la Diócesis.
             </p>
         </div>
